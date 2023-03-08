@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - Bullet
+  - Bomb
+  - PowerUp
+  - ChestParticles
+  - HealParticles
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Post Processing
+  - Water
+  - UI
+  - Enemy
+  - Bombs
+  - Player
+  - Enviroment
+  - Bullets
+  - EnemyBullets
+  - PowerUps
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 962430423
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Bullet
+    uniqueID: 3677800469
+    locked: 0
+  - name: Zombie
+    uniqueID: 3723174305
+    locked: 0
+  - name: Spikey
+    uniqueID: 894967029
+    locked: 0
+  - name: Fly
+    uniqueID: 1225016631
+    locked: 0
+  - name: Player
+    uniqueID: 2130984703
+    locked: 0
+  - name: Enviroment
+    uniqueID: 3126112891
+    locked: 0
