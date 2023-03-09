@@ -4,6 +4,9 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour
 {
     [Header("Spawn")]
+    [SerializeField] private float _offset = 1f;
+    [SerializeField] private float _xBound;
+    [SerializeField] private float _yBound;
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private GameObject[] _enemiesPrefabs;
     [SerializeField] private GameObject[] _powerUpsPrefabs;
@@ -13,19 +16,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float _timeBetweenEnemySpawn = 3;
     [SerializeField] private float _timeBetweenPowerUpSpawn = 5;
 
-    [Header("Enviroment")]
-    [SerializeField] private GameObject[] _enviromentPrefabs;
-    [SerializeField] private Vector2 _spawnOffset;
-    [SerializeField] private float _enviromentCount;
-    [SerializeField] private float _xBound;
-    [SerializeField] private float _yBound;
-
     private void Start()
     {
         Invoke("SpawnEnemy", _timeBetweenEnemySpawn);
         Invoke("SpawnPowerUp", _timeBetweenPowerUpSpawn);
-
-        SpawnRandomEnviroment();
     }
 
     private void Update()
@@ -62,35 +56,10 @@ public class GameManager : MonoBehaviour
         Invoke("SpawnPowerUp", _timeBetweenPowerUpSpawn);
     }
 
-    private void SpawnRandomEnviroment()
-    {
-        var previousPositions = new List<Vector2>();
-        previousPositions.Add(Vector2.zero);
-
-        for (int i = 0; i <= _enviromentCount; i++)
-        {
-            Vector2 randomPosition = GetRandomPosition();
-
-            while (previousPositions.Contains(randomPosition))
-            {
-                randomPosition = GetRandomPosition();
-            }
-
-            var randomIndex = Random.Range(0, _enviromentPrefabs.Length);
-            var obj = _enviromentPrefabs[randomIndex];
-
-            Instantiate(obj, randomPosition, obj.transform.rotation);
-
-            previousPositions.Add(randomPosition);
-        }
-    }
-
-    public float offset = 1;
-
     private Vector2 GetRandomPosition()
     {
-        float x = offset * Mathf.RoundToInt(Random.Range(-1 * _xBound, _xBound));
-        float y = offset * Mathf.RoundToInt(Random.Range(-1 * _yBound, _yBound));
+        float x = _offset * Mathf.RoundToInt(Random.Range(-1 * _xBound, _xBound));
+        float y = _offset * Mathf.RoundToInt(Random.Range(-1 * _yBound, _yBound));
 
         return new Vector2((int)x, (int)y);
     }
