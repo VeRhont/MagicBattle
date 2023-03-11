@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 894967029
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 14
   m_Sprite: {fileID: -1962906923, guid: 310f7adfca853754ea26c3818e41c124, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -189,7 +189,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 894967029
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 13
   m_Sprite: {fileID: 1094542234, guid: 310f7adfca853754ea26c3818e41c124, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -443,7 +443,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 894967029
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 13
   m_Sprite: {fileID: -1242229911, guid: 310f7adfca853754ea26c3818e41c124, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -560,7 +560,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 894967029
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 14
   m_Sprite: {fileID: 1743296179, guid: 310f7adfca853754ea26c3818e41c124, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -644,7 +644,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 894967029
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 12
   m_Sprite: {fileID: 1279081228, guid: 310f7adfca853754ea26c3818e41c124, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -751,11 +751,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3169906736863281315}
   - component: {fileID: 3169906736863281313}
-  - component: {fileID: 3676693997164729078}
   - component: {fileID: 58146289}
   - component: {fileID: 3605861822125806980}
+  - component: {fileID: 626120786}
   m_Layer: 6
-  m_Name: Enemy_2
+  m_Name: Enemy_Spikey
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -800,26 +800,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &3676693997164729078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3169906736863281319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c390db2282ba2ed4d805e7118bdcd2bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 0.5
-  _maxHealth: 50
-  _collisionDamage: 20
-  _enemyAnimator: {fileID: 529116428}
-  _pointsCount: 25
-  _dashStrength: 7
-  _timeBetweenAttack: 4
-  _attackTime: 2
 --- !u!58 &58146289
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -847,3 +827,21 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
+--- !u!114 &626120786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3169906736863281319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65dc541d306020444a7b30785fe6f842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 100
+  _damage: 25
+  _pointsForKill: 20
+  _dashStrength: 10
+  _timeBetweenAttack: 3.5
+  _attackTime: 2

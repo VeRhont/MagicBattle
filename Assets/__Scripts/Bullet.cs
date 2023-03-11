@@ -19,6 +19,7 @@ public class Bullet : MonoBehaviour
             var enemy = collision.gameObject;
 
             var damage = Random.Range(_damage - 3, _damage + 3);
+            // enemy.GetComponent<Enemy_1>().TakeDamage(damage);
             enemy.GetComponent<Enemy>().TakeDamage(damage);
         }
         else if (collision.gameObject.CompareTag("Player"))

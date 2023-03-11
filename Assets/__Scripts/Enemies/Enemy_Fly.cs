@@ -1,36 +1,62 @@
 using UnityEngine;
 
-public class Enemy_3 : Enemy
+public class Enemy_Fly : Enemy
 {
-    [Header("Enemy_3")]
+    [Header("Enemy_Fly")]
+    [SerializeField] private float _speed;
+
     [SerializeField] private Transform _firePoint;
     [SerializeField] private GameObject _bulletPrefab;
 
+    [SerializeField] private float _distanceToShoot;
     [SerializeField] private float _bulletForce;
     [SerializeField] private float _timeBetweenShots;
 
-    private float _lastShotTime;
+    private float _timeFromLastShot;
+
+    private bool isCloseEnough => Vector2.Distance(transform.position, _playerTransform.position) <= _distanceToShoot;
 
     private void Start()
     {
-        _lastShotTime = _timeBetweenShots;
+        _timeFromLastShot = _timeBetweenShots;
     }
 
     private void Update()
     {
-        _lastShotTime -= Time.deltaTime;
+        _timeFromLastShot -= Time.deltaTime;
 
-        if (_lastShotTime <= 0)
+        if (_timeFromLastShot <= 0 && isCloseEnough)
         {
             Shoot();
-
-            _lastShotTime = _timeBetweenShots;
+            _timeFromLastShot = _timeBetweenShots;
         }
     }
 
     private void FixedUpdate()
     {
-        Vector2 playerPosition = playerTransform.position;
+        if (isCloseEnough == false)
+        {
+            MoveToPlayer();
+        }
+        else
+        {
+            FlyAroundPlayer();
+        }
+    }
+
+    private void MoveToPlayer()
+    {
+        LookAtPlayer(_playerTransform.position);
+
+        Vector2 playerPosition = _playerTransform.position;
+        var direction = (playerPosition - _enemyRb.position).normalized;
+
+        _enemyRb.MovePosition(_enemyRb.position + direction * _speed * Time.fixedDeltaTime);
+    }
+
+    private void FlyAroundPlayer()
+    {
+        Vector2 playerPosition = _playerTransform.position;
         Vector2 direction = transform.up + transform.right;
 
         _enemyRb.MovePosition(_enemyRb.position + direction * _speed * Time.fixedDeltaTime);
@@ -39,7 +65,7 @@ public class Enemy_3 : Enemy
     }
 
     private void LookAtPlayer(Vector2 playerPosition)
-    {       
+    {
         var direction = (playerPosition - _enemyRb.position).normalized;
 
         var lookDirection = playerPosition - _enemyRb.position;

@@ -1230,12 +1230,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5749853497196104700}
-  - component: {fileID: 5749853497196104701}
   - component: {fileID: 5749853497196104702}
   - component: {fileID: 1914199253}
   - component: {fileID: 2049030675}
+  - component: {fileID: 1827041499}
   m_Layer: 6
-  m_Name: Enemy_3
+  m_Name: Enemy_Fly
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1257,27 +1257,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5749853497196104701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5749853497196104690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b06bd488daf74da48b90fc9270fa3a61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 1
-  _maxHealth: 20
-  _collisionDamage: 5
-  _enemyAnimator: {fileID: 1914199250}
-  _pointsCount: 15
-  _firePoint: {fileID: 74985962}
-  _bulletPrefab: {fileID: 8123534546210057239, guid: 8a1cff2384d40b14aa8ae5c9f8a901e6, type: 3}
-  _bulletForce: 10
-  _timeBetweenShots: 2
 --- !u!50 &5749853497196104702
 Rigidbody2D:
   serializedVersion: 4
@@ -1326,3 +1305,24 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
+--- !u!114 &1827041499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5749853497196104690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2d119a8076cb64099971d4f7c08ed3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 20
+  _damage: 15
+  _pointsForKill: 15
+  _speed: 3
+  _firePoint: {fileID: 74985962}
+  _bulletPrefab: {fileID: 8123534546210057239, guid: 8a1cff2384d40b14aa8ae5c9f8a901e6, type: 3}
+  _distanceToShoot: 10
+  _bulletForce: 10
+  _timeBetweenShots: 2
