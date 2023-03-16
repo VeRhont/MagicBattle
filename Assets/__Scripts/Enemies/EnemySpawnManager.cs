@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemySpawnManager : MonoBehaviour
 {
     [SerializeField] private EnemyFactory _enemyFactory;
-    [SerializeField] private Transform _playerPosition;
+    [SerializeField] private Transform _playerTransform;
     [SerializeField] private float _spawnRange;
     [SerializeField] private float _timeBetweenSpawn;
 
@@ -26,50 +26,37 @@ public class EnemySpawnManager : MonoBehaviour
         _leftBound = _leftUpCorner.position.x;
         _downBound = _rightDownCorner.position.y;
         _upBound = _leftUpCorner.position.y;
-
-        if (_spawnRange >= _rightBound - _leftBound)
-        {
-            _spawnRange = (_rightBound - _leftBound) / 2;
-        }
     }
 
-    private void Start()
-    {
-        StartCoroutine(SpawnZombies(5));
-    }
-
-    private void Update()
-    {
-        if (_aliveEnemiesCount <= 0)
-        {
-            SpawnZombies(_waveNumber);
-        }
-    }
-
-    private IEnumerator SpawnZombies(int count)
+    private IEnumerator SpawnEnemyWave(EnemyType enemyType, int count, float spawnRadius)
     {
         for (int i = 0; i < count; i++)
         {
             _aliveEnemiesCount++;
 
-            var spawnPosition = GetPosition();
-            _enemyFactory.CreateEnemy(EnemyType.Zombie, spawnPosition);
+            var spawnPosition = GetPosition(spawnRadius);
+            _enemyFactory.CreateEnemy(enemyType, spawnPosition);
 
             yield return new WaitForSeconds(Random.Range(0, _timeBetweenSpawn));
         }
     }
 
-    private Vector2 GetPosition()
+    private Vector2 GetPosition(float spawnRadius)
     {
-        var playerPosition = _playerPosition.transform.position;
+        if (spawnRadius >= (_rightBound - _leftBound) / 2)
+        {
+            spawnRadius = (_rightBound - _leftBound) / 2 - 1;
+        }
+
+        var playerPosition = _playerTransform.transform.position;
         var generatedPosition = new Vector2();
 
         do {
             var angle = Random.Range(0, 360);
-            var x = _spawnRange * Mathf.Cos(angle);
-            var y = _spawnRange * Mathf.Sin(angle);
+            var x = spawnRadius * Mathf.Cos(angle);
+            var y = spawnRadius * Mathf.Sin(angle);
 
-            generatedPosition = new Vector2(x, y);
+            generatedPosition = new Vector2(playerPosition.x + x, playerPosition.y + y);
         }
         while (IsInsideBounds(generatedPosition) == false);
 

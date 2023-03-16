@@ -3,15 +3,18 @@ using UnityEngine;
 public enum EnemyType
 {
     Zombie,
+    ZombieBoss,
     Spikey,
-    Fly
+    Fly,
+    Slime
 }
 
 public class Enemy : MonoBehaviour
 {
     [Header("Enemy")]
     [SerializeField] protected float _health;
-    [SerializeField] protected float _damage;
+    [SerializeField] protected float _attackDamage;
+    [SerializeField] protected float _contactDamage;
     [SerializeField] private int _pointsForKill;
 
     protected Rigidbody2D _enemyRb;
@@ -19,7 +22,9 @@ public class Enemy : MonoBehaviour
     protected Transform _playerTransform;
     protected PlayerController _playerController;
 
-    public virtual void Awake()
+    protected float distanceToPlayer => Vector2.Distance(transform.position, _playerTransform.position);
+
+    protected virtual void Awake()
     {
         _enemyRb = GetComponent<Rigidbody2D>();
         _enemyAnimator = GetComponentInChildren<Animator>();
@@ -40,8 +45,24 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public virtual void Die()
+    protected virtual void Die()
     {
         Destroy(gameObject);
+    }
+
+    protected Vector2 GetDirectionVectorToPlayer()
+    {
+        Vector2 playerPosition = _playerTransform.position;
+        var direction = (playerPosition - _enemyRb.position).normalized;
+
+        return direction;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            _playerController.TakeDamage(_contactDamage);
+        }
     }
 }

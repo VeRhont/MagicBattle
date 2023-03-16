@@ -31,8 +31,7 @@ public class Enemy_Spikey : Enemy
         Stop();
         _enemyAnimator.SetBool("IsRolling", true);
 
-        Vector2 playerPosition = _playerTransform.position;
-        var direction = (playerPosition - _enemyRb.position).normalized;
+        var direction = GetDirectionVectorToPlayer();
         _enemyRb.AddForce(direction * _dashStrength, ForceMode2D.Impulse);
 
         yield return new WaitForSeconds(_attackTime);

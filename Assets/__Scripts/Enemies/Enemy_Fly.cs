@@ -14,7 +14,7 @@ public class Enemy_Fly : Enemy
 
     private float _timeFromLastShot;
 
-    private bool isCloseEnough => Vector2.Distance(transform.position, _playerTransform.position) <= _distanceToShoot;
+    private bool isCloseEnough => (distanceToPlayer <= _distanceToShoot);
 
     private void Start()
     {
@@ -34,13 +34,13 @@ public class Enemy_Fly : Enemy
 
     private void FixedUpdate()
     {
-        if (isCloseEnough == false)
+        if (isCloseEnough)
         {
-            MoveToPlayer();
+            FlyAroundPlayer();       
         }
         else
         {
-            FlyAroundPlayer();
+            MoveToPlayer();
         }
     }
 
@@ -48,8 +48,7 @@ public class Enemy_Fly : Enemy
     {
         LookAtPlayer(_playerTransform.position);
 
-        Vector2 playerPosition = _playerTransform.position;
-        var direction = (playerPosition - _enemyRb.position).normalized;
+        var direction = GetDirectionVectorToPlayer();
 
         _enemyRb.MovePosition(_enemyRb.position + direction * _speed * Time.fixedDeltaTime);
     }

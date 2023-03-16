@@ -12,8 +12,7 @@ public class Enemy_Zombie : Enemy
 
     private void MoveToPlayer()
     {
-        Vector2 playerPosition = _playerTransform.position;
-        var direction = (playerPosition - _enemyRb.position).normalized;
+        var direction = GetDirectionVectorToPlayer();
 
         _enemyRb.MovePosition(_enemyRb.position + direction * _speed * Time.fixedDeltaTime);
     }
@@ -21,7 +20,7 @@ public class Enemy_Zombie : Enemy
     private void Attack()
     {
         _enemyAnimator.SetTrigger("Attack");
-        _playerController.TakeDamage(_damage);
+        _playerController.TakeDamage(_attackDamage);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
