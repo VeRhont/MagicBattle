@@ -5,11 +5,18 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private GameObject _hitEffect;
     [SerializeField] private float _damage;
+
     [SerializeField] private float _lifeTime = 5f;
+    [SerializeField] private float _speed = 10;
 
     private void Awake()
     {
         Destroy(gameObject, _lifeTime);
+    }
+
+    public void Update()
+    {
+        transform.Translate(Vector2.up * _speed * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -19,7 +26,6 @@ public class Bullet : MonoBehaviour
             var enemy = collision.gameObject;
 
             var damage = Random.Range(_damage - 3, _damage + 3);
-            // enemy.GetComponent<Enemy_1>().TakeDamage(damage);
             enemy.GetComponent<Enemy>().TakeDamage(damage);
         }
         else if (collision.gameObject.CompareTag("Player"))

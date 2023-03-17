@@ -1054,13 +1054,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ede553bc94f62446b5533688992bee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 400
+  _health: 500
   _attackDamage: 30
   _contactDamage: 30
   _pointsForKill: 50
-  _speed: 2
+  _speed: 3
   _criticalHpCount: 200
   _summonCount: 5
+  _summonRange: 3
   _colliders:
   - {fileID: 9092238810210226583}
   - {fileID: 4757654976177347958}

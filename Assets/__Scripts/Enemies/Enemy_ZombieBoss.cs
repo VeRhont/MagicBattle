@@ -5,6 +5,7 @@ public class Enemy_ZombieBoss : Enemy_Zombie
 {
     [SerializeField] private float _criticalHpCount;
     [SerializeField] private int _summonCount;
+    [SerializeField] private float _summonRange;
 
     [SerializeField] private Collider2D[] _colliders;
 
@@ -33,10 +34,10 @@ public class Enemy_ZombieBoss : Enemy_Zombie
 
         for (int i = 0; i < count; i++)
         {
-            var spawnPosition = (Vector2) transform.position + Random.insideUnitCircle;
+            var spawnPosition = (Vector2) transform.position + Random.insideUnitCircle * _summonRange;
             _enemyFactory.CreateEnemy(EnemyType.Zombie, spawnPosition);
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.6f);
         }
 
         EnableMovement();

@@ -31,7 +31,7 @@ public class Enemy_Slime : Enemy
     {
         _enemyAnimator.SetBool("IsMoving", true);
         
-        Vector2 direction = GetDirectionVectorToPlayer();
+        var direction = GetDirectionVectorToPlayer();
         _enemyRb.MovePosition(_enemyRb.position + direction *_speed * Time.deltaTime);
     }
 

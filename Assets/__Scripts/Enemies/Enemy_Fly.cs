@@ -56,9 +56,6 @@ public class Enemy_Fly : Enemy
     private void FlyAroundPlayer()
     {
         Vector2 playerPosition = _playerTransform.position;
-        Vector2 direction = transform.up + transform.right;
-
-        _enemyRb.MovePosition(_enemyRb.position + direction * _speed * Time.fixedDeltaTime);
 
         LookAtPlayer(playerPosition);
     }

@@ -45,9 +45,6 @@ public class PlayerShooting : MonoBehaviour
         _audioSource.Play();
 
         var bullet = Instantiate<GameObject>(_bulletPrefab, _firePoint.position, _firePoint.rotation);
-        var bulletRb = bullet.GetComponent<Rigidbody2D>();
-
-        bulletRb.AddForce(_firePoint.up * _bulletForce, ForceMode2D.Impulse);
     }
 
     private void ThrowBomb()
