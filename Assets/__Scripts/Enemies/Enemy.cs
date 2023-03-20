@@ -1,14 +1,5 @@
 using UnityEngine;
 
-public enum EnemyType
-{
-    Zombie,
-    ZombieBoss,
-    Spikey,
-    Fly,
-    Slime
-}
-
 public class Enemy : MonoBehaviour
 {
     [Header("Enemy")]
@@ -47,6 +38,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Die()
     {
+        EnemySpawnManager.Instance.DecreaseAliveEnemiesCount();
         Destroy(gameObject);
     }
 
@@ -58,7 +50,7 @@ public class Enemy : MonoBehaviour
         return direction;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {

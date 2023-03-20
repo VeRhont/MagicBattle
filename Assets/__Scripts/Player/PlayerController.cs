@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -127,5 +126,21 @@ public class PlayerController : MonoBehaviour
         _score += newScore;
 
         _scoreText.SetText($"Score: {_score}");
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("SlimePart"))
+        {
+            _movementSpeed = 0.2f;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("SlimePart"))
+        {
+            _movementSpeed = 3f;
+        }
     }
 }

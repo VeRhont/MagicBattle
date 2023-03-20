@@ -3,10 +3,24 @@ using System.Collections;
 
 public class EnemySpawnManager : MonoBehaviour
 {
+    public static EnemySpawnManager Instance;
+
     [SerializeField] private EnemyFactory _enemyFactory;
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private float _spawnRange;
     [SerializeField] private float _timeBetweenSpawn;
+
+    [Header("SpawnChances; simple enemies")]
+    [SerializeField, Range(0, 1)] private float _zombieSpawn;
+    [SerializeField, Range(0, 1)] private float _flySpawn;
+    [SerializeField, Range(0, 1)] private float _spikeySpawn;
+    [SerializeField, Range(0, 1)] private float _slimeSpawn;
+
+    [Header("SpawnChances: difficult enemies")]
+    [SerializeField, Range(0, 1)] private float _zombieBossSpawn;
+    [SerializeField, Range(0, 1)] private float _flyBossSpawn;
+    [SerializeField, Range(0, 1)] private float _SpikeyBossSpawn;
+
 
     private int _waveNumber = 1;
     private int _aliveEnemiesCount = 0;
@@ -22,10 +36,61 @@ public class EnemySpawnManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+
         _rightBound = _rightDownCorner.position.x;
         _leftBound = _leftUpCorner.position.x;
         _downBound = _rightDownCorner.position.y;
         _upBound = _leftUpCorner.position.y;
+    }
+
+    private void Update()
+    {
+        if (_aliveEnemiesCount <= 0)
+        {
+            _waveNumber++;
+
+            if (Random.value > 0.1f)
+            {
+                StartCoroutine(SpawnEnemyWave(GetRandomSimpleEnemy(), _waveNumber, _spawnRange));
+            }
+            else
+            {
+                StartCoroutine(SpawnEnemyWave(GetRandomDifficultEnemy(), 1, _spawnRange + 10));
+            }
+
+        }
+    }
+
+    public void DecreaseAliveEnemiesCount()
+    {
+        _aliveEnemiesCount--;
+    }
+
+    public EnemyType GetRandomSimpleEnemy()
+    {
+        var randomValue = Random.value;
+
+        if (randomValue < _zombieSpawn) return EnemyType.Zombie;
+        if (randomValue < _flySpawn) return EnemyType.Fly;
+        if (randomValue < _spikeySpawn) return EnemyType.Spikey;
+        if (randomValue < _slimeSpawn) return EnemyType.Slime;
+
+        return EnemyType.Default;
+    }
+
+    public EnemyType GetRandomDifficultEnemy()
+    {
+        var randomValue = Random.value;
+
+        if (randomValue < _zombieBossSpawn) return EnemyType.ZombieBoss;  
+        if (randomValue < _flyBossSpawn) return EnemyType.FlyBoss;  
+        if (randomValue < _SpikeyBossSpawn) return EnemyType.SpikeyBoss;
+
+        return EnemyType.Default;
     }
 
     private IEnumerator SpawnEnemyWave(EnemyType enemyType, int count, float spawnRadius)

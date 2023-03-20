@@ -1,6 +1,18 @@
 using UnityEngine;
 using System;
 
+public enum EnemyType
+{
+    Zombie,
+    Fly,
+    Spikey,
+    Slime,
+    ZombieBoss,
+    FlyBoss,
+    SpikeyBoss,
+    Default
+}
+
 public class EnemyFactory : MonoBehaviour
 {
     [SerializeField] private Enemy[] _enemyPrefabs;

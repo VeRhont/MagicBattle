@@ -521,8 +521,17 @@ MonoBehaviour:
   _contactDamage: 15
   _pointsForKill: 5
   _speed: 1
+  _slimesCount: 20
+  _radius: 10
+  _slimeParts:
+  - {fileID: 3046745924582302327, guid: 8b3a433b99d81bb4281fc74d91d79a61, type: 3}
+  - {fileID: 8288273384567335146, guid: ddb90858058b93c43a6ce057e27c4694, type: 3}
+  - {fileID: 5903917169380697549, guid: cddcefe152971db4a9fca977bed38c75, type: 3}
+  - {fileID: 1453776072808722826, guid: 038955dd4950e5848acd5b0d1ae33972, type: 3}
+  _deathParticles: {fileID: 8693532088449947573, guid: d98c77ee1f9553d4d9035d5e7a632186, type: 3}
   _distanceToAttack: 7
-  _slimes: []
+  _timeBetweenAttack: 2
+  _projectilePrefab: {fileID: 318745607088990167, guid: 83a95e6aef4c08443bb78c9b5412430c, type: 3}
 --- !u!1 &3011573979185692837
 GameObject:
   m_ObjectHideFlags: 0

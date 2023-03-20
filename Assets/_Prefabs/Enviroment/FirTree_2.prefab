@@ -180,8 +180,8 @@ GameObject:
   - component: {fileID: 6995397310771457523}
   - component: {fileID: 6995397310771457525}
   - component: {fileID: 2982200531849272781}
-  - component: {fileID: 6052630743960475435}
   - component: {fileID: 6106700477834285525}
+  - component: {fileID: 70746708}
   m_Layer: 9
   m_Name: FirTree_2
   m_TagString: Untagged
@@ -290,32 +290,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cbb01896f5d61342ac1b96fc6de6d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &6052630743960475435
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6995397310771457520}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.007031679, y: 0.13527894}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.45740008, y: 0.056131255}
-    oldSize: {x: 2.0855727, y: 3.82}
-    newSize: {x: 2.0855727, y: 3.82}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.47267866, y: 0.6994014}
-  m_EdgeRadius: 0
 --- !u!61 &6106700477834285525
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -342,3 +316,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9006016, y: 2.892541}
   m_EdgeRadius: 0
+--- !u!58 &70746708
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6995397310771457520}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 90e08d96757584745be1f36a77f60ba3, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.00502795, y: 0.1776756}
+  serializedVersion: 2
+  m_Radius: 0.42883033
