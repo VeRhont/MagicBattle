@@ -70,6 +70,11 @@ public class EnemySpawnManager : MonoBehaviour
         _aliveEnemiesCount--;
     }
 
+    public void IncreaseAliveEnemiesCount()
+    {
+        _aliveEnemiesCount++;
+    }
+
     public EnemyType GetRandomSimpleEnemy()
     {
         var randomValue = Random.value;

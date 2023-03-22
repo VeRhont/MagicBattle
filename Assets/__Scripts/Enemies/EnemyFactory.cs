@@ -19,6 +19,8 @@ public class EnemyFactory : MonoBehaviour
 
     public void CreateEnemy(EnemyType enemyType, Vector2 position)
     {
+        EnemySpawnManager.Instance.IncreaseAliveEnemiesCount();
+
         var index = (int)enemyType;
         Instantiate(_enemyPrefabs[index], position, Quaternion.identity);
     }
