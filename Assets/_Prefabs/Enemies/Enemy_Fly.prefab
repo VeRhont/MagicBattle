@@ -1318,8 +1318,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 20
-  _attackDamage: 0
-  _contactDamage: 0
+  _attackDamage: 10
+  _contactDamage: 10
   _pointsForKill: 15
   _speed: 3
   _firePoint: {fileID: 74985962}

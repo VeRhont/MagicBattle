@@ -5,14 +5,14 @@ public class Enemy_Fly : Enemy
     [Header("Enemy_Fly")]
     [SerializeField] private float _speed;
 
-    [SerializeField] private Transform _firePoint;
+    [SerializeField] protected Transform _firePoint;
     [SerializeField] private GameObject _bulletPrefab;
 
     [SerializeField] private float _distanceToShoot;
     [SerializeField] private float _bulletForce;
     [SerializeField] private float _timeBetweenShots;
 
-    private float _timeFromLastShot;
+    protected float _timeFromLastShot;
 
     private bool isCloseEnough => (distanceToPlayer <= _distanceToShoot);
 
@@ -21,14 +21,13 @@ public class Enemy_Fly : Enemy
         _timeFromLastShot = _timeBetweenShots;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         _timeFromLastShot -= Time.deltaTime;
 
         if (_timeFromLastShot <= 0 && isCloseEnough)
         {
             Shoot();
-            _timeFromLastShot = _timeBetweenShots;
         }
     }
 
@@ -70,13 +69,11 @@ public class Enemy_Fly : Enemy
         _enemyRb.rotation = angle;
     }
 
-    private void Shoot()
+    protected virtual void Shoot()
     {
+        _timeFromLastShot = _timeBetweenShots;
+
         _enemyAnimator.SetTrigger("Attack");
-
         var bullet = Instantiate<GameObject>(_bulletPrefab, _firePoint.position, _firePoint.rotation);
-        var bulletRb = bullet.GetComponent<Rigidbody2D>();
-
-        bulletRb.AddForce(_firePoint.up * _bulletForce, ForceMode2D.Impulse);
     }
 }

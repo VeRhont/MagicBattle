@@ -17,13 +17,15 @@ public class Enemy_ZombieBoss : Enemy_Zombie
         _enemyFactory = GameObject.FindObjectOfType<EnemyFactory>().GetComponent<EnemyFactory>();
     }
 
-    private void Update()
+    protected override void Update()
     {
         if ((_health <= _criticalHpCount) && _canSummon)
         {
             StartCoroutine(SummonZombies(_summonCount));
             _canSummon = false;
         }
+
+        base.Update();
     }
 
     private IEnumerator SummonZombies(int count)

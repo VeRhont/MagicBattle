@@ -38,6 +38,8 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Die()
     {
+        StopAllCoroutines();
+
         EnemySpawnManager.Instance.DecreaseAliveEnemiesCount();
         Destroy(gameObject);
     }

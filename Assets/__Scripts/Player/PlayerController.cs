@@ -8,16 +8,23 @@ public class PlayerController : MonoBehaviour
     static public PlayerController Instance;
 
     [Header("PlayerStats")]
+    [SerializeField] private float _maxHealth;
+    [SerializeField] private float _movementSpeed;
+    [SerializeField] private float _speedDuringShooting;
+    private float _health;
+
+    [Header("Weapon")]
+    [SerializeField] private GameObject _weapon;
+    [SerializeField] private Transform _weaponPosition;
+    private Rigidbody2D _weaponRb;
+
+
+
     [SerializeField] private int _score;
     [SerializeField] private TextMeshProUGUI _scoreText;
-
-    [SerializeField] private Transform _weapon;
-
-    [SerializeField] private float _movementSpeed;
-
     private Camera _camera;
     private Rigidbody2D _playerRb;
-    private Rigidbody2D _weaponRb;
+
     private Animator _playerAnimator;
 
     private bool _isMoving = false;
@@ -26,8 +33,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Health")]
     [SerializeField] private Image _healthBarImage;
-    [SerializeField] private float _maxHealth;
-    private float _health;
+
 
     private void Awake()
     {
@@ -54,36 +60,27 @@ public class PlayerController : MonoBehaviour
         _movement.x = Input.GetAxisRaw("Horizontal");
         _movement.y = Input.GetAxisRaw("Vertical");
 
-        if (_movement != Vector2.zero)
-        {
-            _isMoving = true;
-        }
-        else
-        {
-            _isMoving = false;
-        }
+        _isMoving = (_movement != Vector2.zero);
 
         _mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
+
+        RotateWeapon();
     }
 
     private void FixedUpdate()
     {
-        if (_isMoving)
-        {
-            _playerAnimator.SetBool("IsMoving", true);
-        }
-        else
-        {
-            _playerAnimator.SetBool("IsMoving", false);
-        }
+        _playerAnimator.SetBool("IsMoving", _isMoving);
 
         _playerRb.MovePosition(_playerRb.position + _movement * _movementSpeed * Time.fixedDeltaTime);
-        _weaponRb.MovePosition(_playerRb.position + _movement * _movementSpeed * Time.fixedDeltaTime);
+    }
 
+    private void RotateWeapon()
+    {       
         var lookDirection = _mousePosition - _weaponRb.position;
         var angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 25f;
 
-        _weaponRb.rotation = angle;
+        _weapon.transform.eulerAngles = new Vector3(0, 0, angle);
+        _weapon.transform.position = _weaponPosition.position;
     }
 
     private void Teleport()
@@ -132,7 +129,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("SlimePart"))
         {
-            _movementSpeed = 0.2f;
+            _movementSpeed = 0.5f;
         }
     }
 

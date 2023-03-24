@@ -102,8 +102,6 @@ public class EnemySpawnManager : MonoBehaviour
     {
         for (int i = 0; i < count; i++)
         {
-            _aliveEnemiesCount++;
-
             var spawnPosition = GetPosition(spawnRadius);
             _enemyFactory.CreateEnemy(enemyType, spawnPosition);
 

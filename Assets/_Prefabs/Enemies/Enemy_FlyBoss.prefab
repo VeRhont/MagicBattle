@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 725757797}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -555,9 +555,17 @@ MonoBehaviour:
   _speed: 2
   _firePoint: {fileID: 725757798}
   _bulletPrefab: {fileID: 8123534546210057239, guid: 8a1cff2384d40b14aa8ae5c9f8a901e6, type: 3}
-  _distanceToShoot: 10
+  _distanceToShoot: 12
   _bulletForce: 10
-  _timeBetweenShots: 2
+  _timeBetweenShots: 1.5
+  _fastBulletPrefab: {fileID: 3223015563807242736, guid: 8e19a24e8962b1d439080926109297f8, type: 3}
+  _commonBulletChanceValue: 0.6
+  _burstChanceValue: 0.8
+  _spreadChanceValue: 1
+  _burstBulletsCount: 5
+  _timeBetweenBurst: 3
+  _spreadBulletsCount: 6
+  _initialAngle: -5
 --- !u!1 &2921430169582976049
 GameObject:
   m_ObjectHideFlags: 0

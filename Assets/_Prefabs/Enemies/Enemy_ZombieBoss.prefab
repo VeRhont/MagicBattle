@@ -961,7 +961,7 @@ Transform:
   m_GameObject: {fileID: 7250446946754199676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.45, y: 0.77, z: -0.056212034}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7250446946512799596}
@@ -1059,6 +1059,7 @@ MonoBehaviour:
   _contactDamage: 30
   _pointsForKill: 50
   _speed: 3
+  _timeBetweenAttack: 2
   _criticalHpCount: 200
   _summonCount: 5
   _summonRange: 3
