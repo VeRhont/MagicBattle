@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
-    //[SerializeField] private AudioSource _audioSource;
-
     [Header("Shooting")]
     [SerializeField] private Transform _firePoint;
     [SerializeField] private GameObject _bulletPrefab;
@@ -11,43 +9,56 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private float _timeBetweenShoot;
     private float _lastShotTime = 1f;
 
-    [Header("Bomb")]
-    [SerializeField] private GameObject _bombPrefab;
-    [SerializeField] private float _throwingForce = 5f;
+    [Header("Charge")]
+    [SerializeField] private GameObject _powerfulChargePrefab;
+    [SerializeField] private float _chargeSpeed = 5f;
+    [SerializeField] private float _timeToCharge;
+    private float _timeFromChargeStart;
 
     private void Update()
     {
-        _lastShotTime -= Time.deltaTime;
-
         if (Input.GetButton("Fire1"))
-        {
+        {          
             if (_lastShotTime <= 0)
             {
+                PlayerController.Instance.IsShooting = true;
                 Shoot();
-            }           
+            }        
+        }
+        else if (Input.GetButtonUp("Fire1"))
+        {
+            PlayerController.Instance.IsShooting = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetButton("Fire2"))
         {
-            ThrowBomb();
+            PlayerController.Instance.IsCharging = true;
+            _timeFromChargeStart += Time.deltaTime;
         }
+        else if (Input.GetButtonUp("Fire2"))
+        {
+            PlayerController.Instance.IsCharging = false;
+            if (_timeFromChargeStart >= _timeToCharge)
+            {
+                ShootPowerfulCharge();              
+            }
+            _timeFromChargeStart = 0;
+        }
+
+        _lastShotTime -= Time.deltaTime;
     }
 
     private void Shoot()
     {
-        //_audioSource.pitch = Random.Range(0.8f, 1.2f);
-        //_audioSource.panStereo = Random.Range(-0.2f, 0.2f);
-        //_audioSource.Play();
-
         var bullet = Instantiate<GameObject>(_bulletPrefab, _firePoint.position, _firePoint.rotation);
         _lastShotTime = _timeBetweenShoot;
     }
 
-    private void ThrowBomb()
+    private void ShootPowerfulCharge()
     {
-        var bomb = Instantiate(_bombPrefab, _firePoint.position, _firePoint.rotation);
-        var velocity = bomb.transform.up;
+        var charge = Instantiate(_powerfulChargePrefab, _firePoint.position, _firePoint.rotation);
+        var velocity = charge.transform.up;
 
-        bomb.gameObject.GetComponent<Rigidbody2D>().AddForce(velocity * _throwingForce, ForceMode2D.Impulse);
+        charge.gameObject.GetComponent<Rigidbody2D>().AddForce(velocity * _chargeSpeed, ForceMode2D.Impulse);
     }
 }

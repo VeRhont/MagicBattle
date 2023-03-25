@@ -30,8 +30,6 @@ public class Enemy_FlyBoss : Enemy_Fly
 
     private void FireSpreadBullets()
     {
-        Debug.Log("HERE");
-
         _timeFromLastShot = 2f;
 
         var angle = _initialAngle;
@@ -41,7 +39,9 @@ public class Enemy_FlyBoss : Enemy_Fly
         {
             var bullet = Instantiate(_fastBulletPrefab, _firePoint.position, _firePoint.rotation);
 
-            var rotation = Quaternion.Euler(0, 0, _firePoint.transform.up.y + angle);
+            var rotation = bullet.transform.rotation;
+            rotation.z += angle;
+
             bullet.transform.rotation = rotation;
 
             angle += delta;

@@ -864,5 +864,5 @@ MonoBehaviour:
   _attackDamage: 10
   _contactDamage: 10
   _pointsForKill: 10
-  _speed: 3
+  _speed: 3.5
   _timeBetweenAttack: 1

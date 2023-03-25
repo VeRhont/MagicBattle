@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Bomb : MonoBehaviour
+public class Charge : MonoBehaviour
 {
     [SerializeField] private float _timeToExplode = 5f;
     [SerializeField] private float _radius;

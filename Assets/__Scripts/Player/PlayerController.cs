@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -9,30 +7,32 @@ public class PlayerController : MonoBehaviour
 
     [Header("PlayerStats")]
     [SerializeField] private float _maxHealth;
-    [SerializeField] private float _movementSpeed;
+    [SerializeField] private float _normalSpeed;
     [SerializeField] private float _speedDuringShooting;
+    [SerializeField] private float _speedDuringCharging;
+    [SerializeField] private float _speedInSlime;
+    private float _currentSpeed;
     private float _health;
+    private int _score;
+    private int _coins;
+    private int _kills;
+
+    public bool IsShooting { get; set; }
+    public bool IsCharging { get; set; }
+
+    private bool _isMoving = false;
+    private Vector2 _movement;
+    private Vector2 _mousePosition;
 
     [Header("Weapon")]
     [SerializeField] private GameObject _weapon;
     [SerializeField] private Transform _weaponPosition;
     private Rigidbody2D _weaponRb;
 
-
-
-    [SerializeField] private int _score;
-    [SerializeField] private TextMeshProUGUI _scoreText;
+    [Header("Components")]
     private Camera _camera;
     private Rigidbody2D _playerRb;
-
     private Animator _playerAnimator;
-
-    private bool _isMoving = false;
-    private Vector2 _movement;
-    private Vector2 _mousePosition;
-
-    [Header("Health")]
-    [SerializeField] private Image _healthBarImage;
 
 
     private void Awake()
@@ -48,6 +48,17 @@ public class PlayerController : MonoBehaviour
         _playerAnimator = GetComponent<Animator>();
 
         _health = _maxHealth;
+        _currentSpeed = _normalSpeed;
+    }
+
+    private void GetInput()
+    {
+        _movement.x = Input.GetAxisRaw("Horizontal");
+        _movement.y = Input.GetAxisRaw("Vertical");
+
+        _isMoving = (_movement != Vector2.zero);
+
+        _mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
     }
 
     private void Update()
@@ -57,21 +68,49 @@ public class PlayerController : MonoBehaviour
             Teleport();
         }
 
-        _movement.x = Input.GetAxisRaw("Horizontal");
-        _movement.y = Input.GetAxisRaw("Vertical");
-
-        _isMoving = (_movement != Vector2.zero);
-
-        _mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
-
+        FlipPlayer();
+        GetInput();
         RotateWeapon();
+
+        if (IsShooting)
+        {
+            _currentSpeed = _speedDuringShooting;
+        }
+        else if (IsCharging)
+        {
+            _currentSpeed = _speedDuringCharging;
+        }
+        else
+        {
+            _currentSpeed = _normalSpeed;
+        }
     }
 
     private void FixedUpdate()
     {
+        if (_isMoving)
+        {
+            Move();
+        }
+    }
+
+    private void Move()
+    {
         _playerAnimator.SetBool("IsMoving", _isMoving);
 
-        _playerRb.MovePosition(_playerRb.position + _movement * _movementSpeed * Time.fixedDeltaTime);
+        _playerRb.MovePosition(_playerRb.position + _movement * _currentSpeed * Time.fixedDeltaTime);
+    }
+
+    private void FlipPlayer()
+    {
+        if (_movement.x < 0)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+        else
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
     }
 
     private void RotateWeapon()
@@ -88,16 +127,9 @@ public class PlayerController : MonoBehaviour
         transform.position = Vector3.zero;
     }
 
-    private void UpdateHealth()
-    {
-        _healthBarImage.fillAmount = _health / _maxHealth;
-    }
-
     public void TakeDamage(float damage)
     {
         _health = Mathf.Clamp(_health - damage, 0, _maxHealth);
-
-        UpdateHealth();
 
         if (_health == 0)
         {
@@ -108,8 +140,6 @@ public class PlayerController : MonoBehaviour
     public void Heal(float hp)
     {
         _health = Mathf.Clamp(_health + hp, 0, _maxHealth);
-
-        UpdateHealth();
     }
 
     private void Die()
@@ -121,15 +151,13 @@ public class PlayerController : MonoBehaviour
     public void UpdateScore(int newScore)
     {
         _score += newScore;
-
-        _scoreText.SetText($"Score: {_score}");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("SlimePart"))
         {
-            _movementSpeed = 0.5f;
+            _currentSpeed = _speedInSlime;
         }
     }
 
@@ -137,7 +165,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("SlimePart"))
         {
-            _movementSpeed = 3f;
+            _currentSpeed = _normalSpeed;
         }
     }
 }

@@ -565,7 +565,7 @@ MonoBehaviour:
   _burstBulletsCount: 5
   _timeBetweenBurst: 3
   _spreadBulletsCount: 6
-  _initialAngle: -5
+  _initialAngle: -0.2
 --- !u!1 &2921430169582976049
 GameObject:
   m_ObjectHideFlags: 0
