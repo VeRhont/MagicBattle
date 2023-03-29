@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
 
     private void FlipPlayer()
     {
-        if (_movement.x < 0)
+        if (_mousePosition.x < transform.position.x)
         {
             transform.eulerAngles = new Vector3(0, 180, 0);
         }

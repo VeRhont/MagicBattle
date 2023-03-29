@@ -1,7 +1,12 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerShooting : MonoBehaviour
 {
+    [Header("Constants")]
+    private const string LEFT_MOUSE_BUTTON = "Fire1";
+    private const string RIGHT_MOUSE_BUTTON = "Fire2";
+
     [Header("Shooting")]
     [SerializeField] private Transform _firePoint;
     [SerializeField] private GameObject _bulletPrefab;
@@ -13,29 +18,46 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private GameObject _powerfulChargePrefab;
     [SerializeField] private float _chargeSpeed = 5f;
     [SerializeField] private float _timeToCharge;
-    private float _timeFromChargeStart;
+    private float _timeFromChargeStart = 0;
+
+    [Header("LaserBeam")]
+    [SerializeField] private GameObject _laserBeamPrefab;
+    [SerializeField] private int _beamDamage;
+    [SerializeField] private float _laserBeamDuration;
+    private bool _isLaserBeamActive = false;
+    private GameObject _laserBeam;
+    private LaserBeam _line;
 
     private void Update()
     {
-        if (Input.GetButton("Fire1"))
-        {          
-            if (_lastShotTime <= 0)
+        if (Input.GetButton(LEFT_MOUSE_BUTTON))
+        {   
+            if (_isLaserBeamActive)
+            {
+                UpdateLaserBeamPosition();
+            }
+            else if (_lastShotTime <= 0)
             {
                 PlayerController.Instance.IsShooting = true;
                 Shoot();
             }        
         }
-        else if (Input.GetButtonUp("Fire1"))
+        else if (Input.GetButtonUp(LEFT_MOUSE_BUTTON))
         {
+            if (_isLaserBeamActive)
+            {
+                _laserBeam.SetActive(false);
+            }
+
             PlayerController.Instance.IsShooting = false;
         }
 
-        if (Input.GetButton("Fire2"))
+        if (Input.GetButton(RIGHT_MOUSE_BUTTON))
         {
             PlayerController.Instance.IsCharging = true;
             _timeFromChargeStart += Time.deltaTime;
         }
-        else if (Input.GetButtonUp("Fire2"))
+        else if (Input.GetButtonUp(RIGHT_MOUSE_BUTTON))
         {
             PlayerController.Instance.IsCharging = false;
             if (_timeFromChargeStart >= _timeToCharge)
@@ -60,5 +82,39 @@ public class PlayerShooting : MonoBehaviour
         var velocity = charge.transform.up;
 
         charge.gameObject.GetComponent<Rigidbody2D>().AddForce(velocity * _chargeSpeed, ForceMode2D.Impulse);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("LaserPowerup"))
+        {
+            StartCoroutine(ActivateLaserBeam());
+            Destroy(other.gameObject);
+        }
+    }
+
+    private IEnumerator ActivateLaserBeam()
+    {
+        _isLaserBeamActive = true;
+        CreateLaserBeam();
+
+        yield return new WaitForSeconds(_laserBeamDuration);
+
+        _isLaserBeamActive = false;
+        Destroy(_laserBeam);
+    }
+
+    private void CreateLaserBeam()
+    {
+        _laserBeam = Instantiate(_laserBeamPrefab, _firePoint.position, _firePoint.rotation);
+        _line = _laserBeam.GetComponent<LaserBeam>();
+
+        _laserBeam.SetActive(false);
+    }
+
+    private void UpdateLaserBeamPosition()
+    {
+        _laserBeam.SetActive(true);
+        _line.SetPoints(_firePoint);
     }
 }

@@ -1243,6 +1243,7 @@ GameObject:
   - component: {fileID: 300259214}
   - component: {fileID: 300259215}
   - component: {fileID: 300259216}
+  - component: {fileID: 300259217}
   m_Layer: 8
   m_Name: Gun
   m_TagString: Untagged
@@ -1286,6 +1287,9 @@ MonoBehaviour:
   _powerfulChargePrefab: {fileID: 9003868037347800734, guid: d15e1b742daa12f428d63aaf210c2010, type: 3}
   _chargeSpeed: 5
   _timeToCharge: 3
+  _laserBeamPrefab: {fileID: 1286477055001992462, guid: 114ccd97d91fe614a8bd2daade39f389, type: 3}
+  _beamDamage: 5
+  _laserBeamDuration: 20
 --- !u!50 &300259215
 Rigidbody2D:
   serializedVersion: 4
@@ -1403,6 +1407,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!58 &300259217
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300259212}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.98247755
 --- !u!1001 &307443449
 PrefabInstance:
   m_ObjectHideFlags: 0

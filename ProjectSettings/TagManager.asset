@@ -11,6 +11,7 @@ TagManager:
   - ChestParticles
   - HealParticles
   - SlimePart
+  - LaserPowerup
   layers:
   - Default
   - TransparentFX
