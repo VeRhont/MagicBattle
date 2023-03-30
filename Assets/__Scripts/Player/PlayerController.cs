@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
         _movement.y = Input.GetAxisRaw("Vertical");
 
         _isMoving = (_movement != Vector2.zero);
+        _playerAnimator.SetBool("IsMoving", _isMoving);
 
         _mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
     }
@@ -96,7 +97,7 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        _playerAnimator.SetBool("IsMoving", _isMoving);
+
 
         _playerRb.MovePosition(_playerRb.position + _movement * _currentSpeed * Time.fixedDeltaTime);
     }
