@@ -64,10 +64,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Teleport();
-        }
 
         FlipPlayer();
         GetInput();
@@ -89,16 +85,11 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_isMoving)
-        {
-            Move();
-        }
+        Move();
     }
 
     private void Move()
     {
-
-
         _playerRb.MovePosition(_playerRb.position + _movement * _currentSpeed * Time.fixedDeltaTime);
     }
 
