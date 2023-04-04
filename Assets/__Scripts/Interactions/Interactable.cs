@@ -6,6 +6,7 @@ public class Interactable : MonoBehaviour
     [SerializeField] private GameObject _outline;
     [SerializeField] private KeyCode _keyToInteract;
     [SerializeField] private UnityEvent _interactAction;
+    [SerializeField] private UnityEvent _exitRangeAction;
 
     private bool _isInRange = false;
 
@@ -26,8 +27,6 @@ public class Interactable : MonoBehaviour
         {
             _isInRange = true;
             _outline.SetActive(true);
-
-            Debug.Log("Player is in range");
         }
     }
 
@@ -37,7 +36,11 @@ public class Interactable : MonoBehaviour
         {
             _isInRange = false;
             _outline.SetActive(false);
-            Debug.Log("Player is out of range");
+
+            if (_exitRangeAction != null)
+            {
+                _exitRangeAction?.Invoke();
+            }
         }
     }
 }
