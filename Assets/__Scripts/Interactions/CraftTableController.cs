@@ -3,8 +3,10 @@ using System.Collections.Generic;
 
 public class CraftTableController : MonoBehaviour
 {
+    [SerializeField] private GameObject _canvas;
     [SerializeField] private GameObject _formPrefab;
     [SerializeField] private List<CraftableObject> _craftableObjects;
+    [SerializeField] private Transform _contentParent;
 
     private void Awake()
     {
@@ -21,17 +23,17 @@ public class CraftTableController : MonoBehaviour
 
     private void CreateForm(CraftableObject obj)
     {
-        var form = Instantiate(_formPrefab);
+        var form = Instantiate(_formPrefab, _contentParent);
         form.GetComponent<CraftTableForm>().SetValues(obj);
     }
 
     public void ShowShopUI()
     {
-        Debug.Log("Show");
+        _canvas.SetActive(true);
     }
 
     public void HideShopUI()
     {
-        Debug.Log("Hide");
+        _canvas.SetActive(false);
     }
 }
