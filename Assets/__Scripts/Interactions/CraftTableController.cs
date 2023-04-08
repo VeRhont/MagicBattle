@@ -5,8 +5,8 @@ public class CraftTableController : MonoBehaviour
 {
     [SerializeField] private GameObject _canvas;
     [SerializeField] private GameObject _formPrefab;
-    [SerializeField] private List<CraftableObject> _craftableObjects;
     [SerializeField] private Transform _contentParent;
+    [SerializeField] private List<CraftableObject> _craftableObjects;
 
     private void Awake()
     {
