@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     private float _currentSpeed;
     private float _health;
     private int _score;
-    private int _coins;
     private int _kills;
 
     public bool IsShooting { get; set; }

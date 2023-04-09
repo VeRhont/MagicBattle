@@ -20,5 +20,30 @@ public class PlayerWallet: MonoBehaviour
             if (value > 0) _coins = value;
         }
     }
+    public int Soul
+    {
+        get
+        {
+            return _soul;
+        }
+        set
+        {
+            if (value > 0) _soul = value;
+        }
+    }
+    public int Crystals
+    {
+        get
+        {
+            return _crystals;
+        }
+        set
+        {
+            if (value > 0) _crystals = value;
+        }
+    }
+
     private int _coins;
+    private int _soul;
+    private int _crystals;
 }

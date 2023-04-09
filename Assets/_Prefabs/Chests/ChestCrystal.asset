@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42f4c7d4476494a4abc9ea28a6ad5875, type: 3}
+  m_Name: ChestCrystal
+  m_EditorClassIdentifier: 
+  _type: 2
+  _chestSprite: {fileID: 545725784, guid: 5a6de16b70c6b104c9af1748f5cc104f, type: 3}
+  _minCount: 1
+  _maxCount: 3
+  _valueToSpawn: 1
+  _particles: {fileID: 8067937340310914434, guid: 1928c97ada5a9a0429b51c254a72b2cb, type: 3}
