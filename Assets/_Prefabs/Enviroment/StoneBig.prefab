@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 1742701103}
   m_Layer: 0
   m_Name: StoneBig
-  m_TagString: Untagged
+  m_TagString: Enviroment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

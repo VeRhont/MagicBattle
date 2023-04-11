@@ -16,6 +16,20 @@ public class Enemy_Hellball : Enemy
         {
             Attack();
         }
+
+        Flip();
+    }
+
+    private void Flip()
+    {
+        if (_playerTransform.position.x > transform.position.x)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 
     private void MoveToPlayer()

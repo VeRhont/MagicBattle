@@ -542,8 +542,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.023241764, y: -0.01859343}
-  m_Size: {x: 3.333479, y: 1.4090883}
+  m_Offset: {x: -0.013776542, y: 0.009802463}
+  m_Size: {x: 3.617447, y: 1.8066418}
   m_Direction: 1
 --- !u!50 &1100114507451492782
 Rigidbody2D:
@@ -578,6 +578,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33301f909de49494293ab81f943df232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: 100
+  _attackDamage: 0
+  _contactDamage: 10
+  _pointsForKill: 20
+  _deathParticles: {fileID: 8693599252444959543, guid: e389905a782b56b428996c1edcd84cf4, type: 3}
+  _destructionRadius: 3
+  _timeBetweenSpawn: 10
 --- !u!1 &1100114507571611054
 GameObject:
   m_ObjectHideFlags: 0

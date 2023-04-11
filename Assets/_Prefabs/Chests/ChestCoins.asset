@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: ChestCoins
   m_EditorClassIdentifier: 
   _type: 0
-  _chestSprite: {fileID: 558068407, guid: 7a9ce7bc84cbfa640b535ea848272ca3, type: 3}
+  _chestSprite: {fileID: 989856476, guid: 3a119a5e8c80a2540a2700a86fd6cffd, type: 3}
   _minCount: 10
   _maxCount: 20
-  _valueToSpawn: 0.6
+  _valueToSpawn: 0.7
   _particles: {fileID: 8067937340310914434, guid: 1928c97ada5a9a0429b51c254a72b2cb, type: 3}

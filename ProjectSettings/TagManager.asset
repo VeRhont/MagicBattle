@@ -12,6 +12,7 @@ TagManager:
   - HealParticles
   - SlimePart
   - LaserPowerup
+  - Enviroment
   layers:
   - Default
   - TransparentFX

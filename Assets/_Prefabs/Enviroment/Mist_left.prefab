@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3095583705395170564}
   m_Layer: 0
   m_Name: Mist_left
-  m_TagString: Untagged
+  m_TagString: Enviroment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,6 +124,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mist (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5120255382519292605, guid: 0411c94ecb86b3e498e285d15165a707, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0411c94ecb86b3e498e285d15165a707, type: 3}
 --- !u!4 &7925057568889229929 stripped
@@ -197,6 +201,10 @@ PrefabInstance:
     - target: {fileID: 5120255382519292605, guid: 0411c94ecb86b3e498e285d15165a707, type: 3}
       propertyPath: m_Name
       value: Mist (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120255382519292605, guid: 0411c94ecb86b3e498e285d15165a707, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0411c94ecb86b3e498e285d15165a707, type: 3}
@@ -272,6 +280,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mist (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5120255382519292605, guid: 0411c94ecb86b3e498e285d15165a707, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0411c94ecb86b3e498e285d15165a707, type: 3}
 --- !u!4 &7925057569211901363 stripped
@@ -346,6 +358,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mist (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5120255382519292605, guid: 0411c94ecb86b3e498e285d15165a707, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0411c94ecb86b3e498e285d15165a707, type: 3}
 --- !u!4 &7925057568525793479 stripped
@@ -419,6 +435,10 @@ PrefabInstance:
     - target: {fileID: 5120255382519292605, guid: 0411c94ecb86b3e498e285d15165a707, type: 3}
       propertyPath: m_Name
       value: Mist
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120255382519292605, guid: 0411c94ecb86b3e498e285d15165a707, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0411c94ecb86b3e498e285d15165a707, type: 3}

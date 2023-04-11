@@ -7,6 +7,8 @@ public enum EnemyType
     Fly,
     Spikey,
     Slime,
+    Hellball,
+    Wormholl,
     ZombieBoss,
     FlyBoss,
     SpikeyBoss,

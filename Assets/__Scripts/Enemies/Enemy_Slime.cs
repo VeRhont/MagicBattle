@@ -8,7 +8,6 @@ public class Enemy_Slime : Enemy
     [SerializeField] private int _slimesCount;
     [SerializeField] private float _radius;
     [SerializeField] private GameObject[] _slimeParts;
-    [SerializeField] private ParticleSystem _deathParticles;
 
     [Header("Slime_Attack")]
     [SerializeField] private float _distanceToAttack;
@@ -63,7 +62,6 @@ public class Enemy_Slime : Enemy
 
     protected override void Die()
     {
-        Instantiate(_deathParticles, transform.position, Quaternion.identity);
         SpawnSlimes();
         base.Die();
     }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ChestSoul
   m_EditorClassIdentifier: 
   _type: 1
-  _chestSprite: {fileID: -1968764162, guid: f13d7e3dd9937fb4aa063085bdc15d9d, type: 3}
+  _chestSprite: {fileID: 930573096, guid: 3a119a5e8c80a2540a2700a86fd6cffd, type: 3}
   _minCount: 5
   _maxCount: 10
   _valueToSpawn: 0.9

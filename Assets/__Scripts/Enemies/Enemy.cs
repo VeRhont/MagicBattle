@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float _contactDamage;
     [SerializeField] private int _pointsForKill;
 
+    [SerializeField] private ParticleSystem _deathParticles;
+
     protected Rigidbody2D _enemyRb;
     protected Animator _enemyAnimator;
     protected Transform _playerTransform;
@@ -41,6 +43,11 @@ public class Enemy : MonoBehaviour
         StopAllCoroutines();
 
         EnemySpawnManager.Instance.DecreaseAliveEnemiesCount();
+
+        if (_deathParticles != null)
+        {
+            Instantiate(_deathParticles, transform.position, _deathParticles.transform.rotation);
+        }
         Destroy(gameObject);
     }
 

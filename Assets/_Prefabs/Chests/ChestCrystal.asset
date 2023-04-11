@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ChestCrystal
   m_EditorClassIdentifier: 
   _type: 2
-  _chestSprite: {fileID: 545725784, guid: 5a6de16b70c6b104c9af1748f5cc104f, type: 3}
+  _chestSprite: {fileID: 1366141689, guid: 3a119a5e8c80a2540a2700a86fd6cffd, type: 3}
   _minCount: 1
   _maxCount: 3
   _valueToSpawn: 1

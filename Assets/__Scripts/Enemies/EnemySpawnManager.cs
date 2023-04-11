@@ -15,6 +15,7 @@ public class EnemySpawnManager : MonoBehaviour
     [SerializeField, Range(0, 1)] private float _flySpawn;
     [SerializeField, Range(0, 1)] private float _spikeySpawn;
     [SerializeField, Range(0, 1)] private float _slimeSpawn;
+    [SerializeField, Range(0, 1)] private float _wormhollSpawn;
 
     [Header("SpawnChances: difficult enemies")]
     [SerializeField, Range(0, 1)] private float _zombieBossSpawn;
@@ -83,6 +84,7 @@ public class EnemySpawnManager : MonoBehaviour
         if (randomValue < _flySpawn) return EnemyType.Fly;
         if (randomValue < _spikeySpawn) return EnemyType.Spikey;
         if (randomValue < _slimeSpawn) return EnemyType.Slime;
+        if (randomValue < _wormhollSpawn) return EnemyType.Wormholl;
 
         return EnemyType.Default;
     }
