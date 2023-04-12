@@ -350,7 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89108a24121b60242be047e116ec9ac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 50
+  _health: 20
   _attackDamage: 20
   _contactDamage: 20
   _pointsForKill: 10

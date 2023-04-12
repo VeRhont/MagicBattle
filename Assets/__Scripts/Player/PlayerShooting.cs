@@ -28,6 +28,11 @@ public class PlayerShooting : MonoBehaviour
     private GameObject _laserBeam;
     private LaserBeam _line;
 
+    private void Awake()
+    {
+        LoadWeaponData();
+    }
+
     private void Update()
     {
         if (Input.GetButton(LEFT_MOUSE_BUTTON))
@@ -116,5 +121,10 @@ public class PlayerShooting : MonoBehaviour
     {
         _laserBeam.SetActive(true);
         _line.SetPoints(_firePoint);
+    }
+
+    private void LoadWeaponData()
+    {
+        SaveSystem.Instance.LoadWeaponData();
     }
 }

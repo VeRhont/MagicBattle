@@ -7,6 +7,13 @@ public class PlayerWallet: MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        LoadResourcesCount();
+    }
+
+    private void LoadResourcesCount()
+    {
+        SaveSystem.Instance.LoadResourcesData();
+        UI_Manager.Instance.UpdateResourcesCount(Coins, Soul, Crystals);
     }
 
     public int Coins

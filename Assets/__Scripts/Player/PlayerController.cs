@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour
 
         _health = _maxHealth;
         _currentSpeed = _normalSpeed;
+
+        LoadPlayerData();
     }
 
     private void GetInput()
@@ -113,14 +115,10 @@ public class PlayerController : MonoBehaviour
         _weapon.transform.position = _weaponPosition.position;
     }
 
-    private void Teleport()
-    {
-        transform.position = Vector3.zero;
-    }
-
     public void TakeDamage(float damage)
     {
         _health = Mathf.Clamp(_health - damage, 0, _maxHealth);
+        UpdateHealthBar();
 
         if (_health == 0)
         {
@@ -131,17 +129,18 @@ public class PlayerController : MonoBehaviour
     public void Heal(float hp)
     {
         _health = Mathf.Clamp(_health + hp, 0, _maxHealth);
+        UpdateHealthBar();
     }
 
     private void Die()
     {
         _playerAnimator.SetBool("IsDead", true);
-        Debug.Log("Player is dead");
+        GameManager.Instance.OnPlayerDie();
     }
 
-    public void UpdateScore(int newScore)
+    private void UpdateHealthBar()
     {
-        _score += newScore;
+        UI_Manager.Instance.UpdatePlayerHealth(_health, _maxHealth);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -158,5 +157,10 @@ public class PlayerController : MonoBehaviour
         {
             _currentSpeed = _normalSpeed;
         }
+    }
+
+    private void LoadPlayerData()
+    {
+        SaveSystem.Instance.LoadPlayerData();
     }
 }

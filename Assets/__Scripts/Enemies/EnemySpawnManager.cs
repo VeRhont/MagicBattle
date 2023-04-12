@@ -56,7 +56,7 @@ public class EnemySpawnManager : MonoBehaviour
 
             if (Random.value > 0.1f)
             {
-                StartCoroutine(SpawnEnemyWave(GetRandomSimpleEnemy(), _waveNumber, _spawnRange));
+                StartCoroutine(SpawnEnemyWave(GetRandomSimpleEnemy(), _waveNumber / 2, _spawnRange));
             }
             else
             {

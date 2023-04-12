@@ -32,7 +32,11 @@ public class Chest : MonoBehaviour
                     PlayerWallet.Instance.Crystals += randomCount;
                     break;
             }
-   
+            
+            UI_Manager.Instance.UpdateResourcesCount(PlayerWallet.Instance.Coins,
+                                                     PlayerWallet.Instance.Soul,
+                                                     PlayerWallet.Instance.Crystals);
+
             DamageUI.Instance.AddText(randomCount, collision.transform.position + Vector3.up);
             
             Destroy(gameObject);
