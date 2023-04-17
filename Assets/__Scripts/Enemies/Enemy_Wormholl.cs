@@ -5,11 +5,8 @@ public class Enemy_Wormholl : Enemy
     [SerializeField] private float _destructionRadius;
     [SerializeField] private float _timeBetweenSpawn;
 
-    private EnemyFactory _enemyFactory;
-
     private void OnEnable()
     {
-        _enemyFactory = FindObjectOfType<EnemyFactory>();
         DestroyNearObjects();
 
         Invoke("SpawnHellball", _timeBetweenSpawn);
@@ -17,7 +14,7 @@ public class Enemy_Wormholl : Enemy
 
     private void SpawnHellball()
     {
-        _enemyFactory.CreateEnemy(EnemyType.Hellball, transform.position);
+        EnemyFactory.Instance.CreateEnemy(EnemyType.Hellball, transform.position);
         Invoke("SpawnHellball", _timeBetweenSpawn);
     }
 

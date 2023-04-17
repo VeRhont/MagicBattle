@@ -135,7 +135,7 @@ public class PlayerController : MonoBehaviour
     private void Die()
     {
         _playerAnimator.SetBool("IsDead", true);
-        GameManager.Instance.OnPlayerDie();
+        GameManager.Instance.SendMessage("EndGame");
     }
 
     private void UpdateHealthBar()

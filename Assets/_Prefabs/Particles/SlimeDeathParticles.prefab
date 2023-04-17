@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8770402734841068088}
   - component: {fileID: 8693532088449947573}
   - component: {fileID: 840094670409512913}
+  - component: {fileID: 8859635716446658102}
   m_Layer: 0
   m_Name: SlimeDeathParticles
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3576507482499071881}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 5.882059, y: -1.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4873,3 +4874,17 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &8859635716446658102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3576507482499071881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93848e2f266a19f45b07a403c23acf6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lifeTime: 10
+  _deltaSize: {x: 1, y: 1, z: 1}

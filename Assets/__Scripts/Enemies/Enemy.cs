@@ -42,7 +42,8 @@ public class Enemy : MonoBehaviour
     {
         StopAllCoroutines();
 
-        EnemySpawnManager.Instance.DecreaseAliveEnemiesCount();
+        EnemySpawnManager.Instance.AliveEnemiesCount -= 1;
+        UI_Manager.Instance.IncreaseKillsCount();
 
         if (_deathParticles != null)
         {

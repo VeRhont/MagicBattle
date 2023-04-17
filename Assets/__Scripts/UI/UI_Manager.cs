@@ -7,13 +7,16 @@ public class UI_Manager : MonoBehaviour
 {
     public static UI_Manager Instance;
 
+    [Header("PlayerStats")]
     [SerializeField] private Image _healthBarImage;
+    [SerializeField] private TextMeshProUGUI _killsCount;
+
+    [Header("Resources")]
     [SerializeField] private GameObject _resourcesCanvas;
     [SerializeField] private TextMeshProUGUI _coinsCountText;
     [SerializeField] private TextMeshProUGUI _soulCountText;
     [SerializeField] private TextMeshProUGUI _crystalsCountText;
     
-
     private void Awake()
     {
         Instance = this;
@@ -22,6 +25,12 @@ public class UI_Manager : MonoBehaviour
     public void UpdatePlayerHealth(float health, float maxHealth)
     {
         _healthBarImage.fillAmount = health / maxHealth;
+    }
+
+    public void IncreaseKillsCount()
+    {
+        int currentCount = int.Parse(_killsCount.text);
+        _killsCount.SetText($"{currentCount + 1}");
     }
 
     public void UpdateResourcesCount(int coins, int soul, int crystals)

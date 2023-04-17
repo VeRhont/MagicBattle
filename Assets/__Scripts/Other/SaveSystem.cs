@@ -9,8 +9,20 @@ public class SaveSystem : MonoBehaviour
         Instance = this;
     }
 
-    public void SavePlayerData()
+    private void OnEnable()
     {
+        GameManager.Instance.OnPlayerDie += SavePlayerData;
+        GameManager.Instance.OnPlayerDie += SaveResourcesData;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.OnPlayerDie -= SavePlayerData;
+        GameManager.Instance.OnPlayerDie -= SaveResourcesData;
+    }
+
+    public void SavePlayerData()
+    {        
         Debug.Log("Player data saved");
     }
 

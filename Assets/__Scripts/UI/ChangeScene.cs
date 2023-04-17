@@ -25,6 +25,22 @@ public class ChangeScene : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
+    private void OnEnable()
+    {
+        GameManager.Instance.OnPlayerDie += ReturnToBase;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.OnPlayerDie -= ReturnToBase;
+    }
+
+    private void ReturnToBase()
+    {
+        Debug.Log("here");
+        FadeToScene(SceneType.Tower);
+    }
+
     public void FadeToScene(SceneType sceneType)
     {
         _sceneToLoad = sceneType;
