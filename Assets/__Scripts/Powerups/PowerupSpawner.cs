@@ -14,6 +14,10 @@ public class PowerupSpawner : MonoBehaviour
     [SerializeField] private GameObject _healPotionPrefab;
     [SerializeField] private float _timeBetweenHealPotionSpawn;
 
+    [Header("Laser")]
+    [SerializeField] private GameObject _laserPowerupPrefab;
+    [SerializeField] private float _timeBetweenLaserPowerupSpawn;
+
     [Header("Coordinates")]
     [SerializeField] private Transform _leftUpCorner;
     [SerializeField] private Transform _rightDownCorner;
@@ -34,6 +38,7 @@ public class PowerupSpawner : MonoBehaviour
     {
         Invoke("SpawnChest", _timeBetweenChestSpawn);
         Invoke("SpawnHealPotion", _timeBetweenHealPotionSpawn);
+        Invoke("SpawnLaserPowerup", _timeBetweenLaserPowerupSpawn);
     }
 
     private void SpawnChest()
@@ -61,6 +66,14 @@ public class PowerupSpawner : MonoBehaviour
         Instantiate(_healPotionPrefab, position, _healPotionPrefab.transform.rotation, _powerupsParent);
 
         Invoke("SpawnHealPotion", _timeBetweenHealPotionSpawn);
+    }
+
+    private void SpawnLaserPowerup()
+    {
+        var position = GetRandomPosition();
+        Instantiate(_laserPowerupPrefab, position, _laserPowerupPrefab.transform.rotation, _powerupsParent);
+
+        Invoke("SpawnLaserPowerup", _timeBetweenLaserPowerupSpawn);
     }
 
     private Vector2 GetRandomPosition()

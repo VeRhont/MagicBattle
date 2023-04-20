@@ -95,8 +95,6 @@ GameObject:
   - component: {fileID: 5647477632021254598}
   - component: {fileID: 5647477632021254599}
   - component: {fileID: 5647477632021254592}
-  - component: {fileID: 5647477632021254593}
-  - component: {fileID: 7605610510021601219}
   - component: {fileID: -1238343606250835171}
   m_Layer: 9
   m_Name: Mushroom_2
@@ -194,44 +192,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5647477632021254593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5647477632021254596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cbb01896f5d61342ac1b96fc6de6d42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &7605610510021601219
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5647477632021254596}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.008949071, y: 0.03579402}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.4895041, y: 0.45259064}
-    oldSize: {x: 0.8527342, y: 0.755}
-    newSize: {x: 0.8527342, y: 0.755}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.8527342, y: 0.755}
-  m_EdgeRadius: 0
 --- !u!210 &-1238343606250835171
 SortingGroup:
   m_ObjectHideFlags: 0

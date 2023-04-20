@@ -24,9 +24,12 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private GameObject _laserBeamPrefab;
     [SerializeField] private int _beamDamage;
     [SerializeField] private float _laserBeamDuration;
+    [SerializeField] private float _timeBetweenUpdates;
     private bool _isLaserBeamActive = false;
+    private bool _readyToUpdate = true;
     private GameObject _laserBeam;
     private LaserBeam _line;
+
 
     private void Awake()
     {
@@ -39,7 +42,7 @@ public class PlayerShooting : MonoBehaviour
         {   
             if (_isLaserBeamActive)
             {
-                UpdateLaserBeamPosition();
+                if (_readyToUpdate) StartCoroutine(UpdateLaserBeamPosition());
             }
             else if (_lastShotTime <= 0)
             {
@@ -56,20 +59,22 @@ public class PlayerShooting : MonoBehaviour
 
             PlayerController.Instance.IsShooting = false;
         }
-
-        if (Input.GetButton(RIGHT_MOUSE_BUTTON))
+        else
         {
-            PlayerController.Instance.IsCharging = true;
-            _timeFromChargeStart += Time.deltaTime;
-        }
-        else if (Input.GetButtonUp(RIGHT_MOUSE_BUTTON))
-        {
-            PlayerController.Instance.IsCharging = false;
-            if (_timeFromChargeStart >= _timeToCharge)
+            if (Input.GetButton(RIGHT_MOUSE_BUTTON))
             {
-                ShootPowerfulCharge();              
+                PlayerController.Instance.IsCharging = true;
+                _timeFromChargeStart += Time.deltaTime;
             }
-            _timeFromChargeStart = 0;
+            else if (Input.GetButtonUp(RIGHT_MOUSE_BUTTON))
+            {
+                PlayerController.Instance.IsCharging = false;
+                if (_timeFromChargeStart >= _timeToCharge)
+                {
+                    ShootPowerfulCharge();              
+                }
+                _timeFromChargeStart = 0;
+            }
         }
 
         _lastShotTime -= Time.deltaTime;
@@ -117,10 +122,16 @@ public class PlayerShooting : MonoBehaviour
         _laserBeam.SetActive(false);
     }
 
-    private void UpdateLaserBeamPosition()
+    private IEnumerator UpdateLaserBeamPosition()
     {
+        _readyToUpdate = false;
+
         _laserBeam.SetActive(true);
         _line.SetPoints(_firePoint);
+
+        yield return new WaitForSeconds(_timeBetweenUpdates);
+
+        _readyToUpdate = true;
     }
 
     private void LoadWeaponData()
