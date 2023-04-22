@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public class TowerController : MonoBehaviour
 {
+    public static TowerController Instance;
+
     [SerializeField] private GameObject _canvas;
     [SerializeField] private GameObject _formPrefab;
     [SerializeField] private Transform _contentParent;
@@ -10,11 +12,13 @@ public class TowerController : MonoBehaviour
 
     private void Awake()
     {
-        CreateUpgradeUI();
+        Instance = this;
     }
 
-    private void CreateUpgradeUI()
+    public void CreateTowerUI()
     {
+        _upgrades.Reverse();
+
         foreach (var obj in _upgrades)
         {
             CreateForm(obj);
@@ -35,5 +39,13 @@ public class TowerController : MonoBehaviour
     public void HideUpgradesShopUI()
     {
         _canvas.SetActive(false);
+    }
+
+    public void AddUpgradableObject(UpgradableObject obj)
+    {
+        if (obj != null)
+        {
+            _upgrades.Add(obj);
+        }
     }
 }

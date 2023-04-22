@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a641bca4e3af4a944938487a997e6d6d, type: 3}
-  m_Name: RingOfPortal
+  m_Name: ShockWave
   m_EditorClassIdentifier: 
-  _iconSprite: {fileID: 219188999, guid: 21e3e2d71510fe149a407c6250cd30f3, type: 3}
-  _moneyToBuy: 1500
-  _soulToBuy: 2000
-  _crystalsToBuy: 10
+  _iconSprite: {fileID: -1231489461, guid: 3a119a5e8c80a2540a2700a86fd6cffd, type: 3}
+  _moneyToBuy: 1000
+  _soulToBuy: 250
+  _crystalsToBuy: 30
+  _upgradableObject: {fileID: 11400000, guid: 94155f8529ab0114fb07d7c4a7d68e8c, type: 2}

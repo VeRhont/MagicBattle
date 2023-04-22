@@ -7,9 +7,11 @@ public class CraftableObject : ScriptableObject
     [SerializeField] private int _moneyToBuy;
     [SerializeField] private int _soulToBuy;
     [SerializeField] private int _crystalsToBuy;
+    [SerializeField] private UpgradableObject _upgradableObject;
 
     public Sprite IconSprite { get { return _iconSprite; } }
     public int MoneyToBuy { get { return _moneyToBuy; } }
     public int SoulToBuy { get { return _soulToBuy; } }
     public int CrystalsToBuy { get { return _crystalsToBuy; } }
+    public UpgradableObject UpgradableObject { get { return _upgradableObject; } }
 }

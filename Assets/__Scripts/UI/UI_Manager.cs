@@ -16,6 +16,7 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _coinsCountText;
     [SerializeField] private TextMeshProUGUI _soulCountText;
     [SerializeField] private TextMeshProUGUI _crystalsCountText;
+    [SerializeField] private float _showCanvasTime = 5;
     
     private void Awake()
     {
@@ -42,10 +43,20 @@ public class UI_Manager : MonoBehaviour
         _crystalsCountText.SetText($"{crystals}");
     }
 
+    public void EnableResourcesCanvas()
+    {
+        _resourcesCanvas.SetActive(true);
+    }
+
+    public void DisableResourcesCanvas()
+    {
+        _resourcesCanvas.SetActive(false);
+    }
+
     private IEnumerator ShowResourcesCanvas()
     {
         _resourcesCanvas.SetActive(true);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(_showCanvasTime);
         _resourcesCanvas.SetActive(false);
     }
 }

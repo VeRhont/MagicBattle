@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a641bca4e3af4a944938487a997e6d6d, type: 3}
-  m_Name: PowerfulCharge
+  m_Name: RingOfPortal
   m_EditorClassIdentifier: 
-  _iconSprite: {fileID: 2047579025, guid: 21e3e2d71510fe149a407c6250cd30f3, type: 3}
-  _moneyToBuy: 1000
-  _soulToBuy: 500
-  _crystalsToBuy: 2
+  _iconSprite: {fileID: 219188999, guid: 21e3e2d71510fe149a407c6250cd30f3, type: 3}
+  _moneyToBuy: 150
+  _soulToBuy: 200
+  _crystalsToBuy: 10
+  _upgradableObject: {fileID: 11400000, guid: 153269743e4654744bef4b59714b5d3e, type: 2}
