@@ -54,4 +54,19 @@ public class SaveSystem : MonoBehaviour
         PlayerWallet.Instance.Soul = PlayerPrefs.GetInt("soulCount", 0);
         PlayerWallet.Instance.Crystals = PlayerPrefs.GetInt("crystalsCount", 0);
     }
+    
+    public void SaveCraftObject(string name)
+    {
+        PlayerPrefs.SetInt(name, 1);
+    }
+
+    public void SaveUpgradeLevel(string name, int level)
+    {
+        PlayerPrefs.SetInt($"{name}Upgrade", level);
+    }
+
+    public int LoadUpgradeLevel(string name)
+    {
+        return PlayerPrefs.GetInt($"{name}Upgrade", 0);
+    }
 }

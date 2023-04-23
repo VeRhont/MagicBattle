@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a641bca4e3af4a944938487a997e6d6d, type: 3}
   m_Name: HealPotion
   m_EditorClassIdentifier: 
+  _name: healPotion
   _iconSprite: {fileID: -1522970923, guid: 7a9ce7bc84cbfa640b535ea848272ca3, type: 3}
   _moneyToBuy: 100
   _soulToBuy: 0

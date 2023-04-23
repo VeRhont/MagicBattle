@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c687a6062373f9f4b884e87205e02357, type: 3}
   m_Name: ShockWaveUpgrade
   m_EditorClassIdentifier: 
+  _name: shockWaveUpgrade
   _iconSprite: {fileID: -1231489461, guid: 3a119a5e8c80a2540a2700a86fd6cffd, type: 3}
   _maxLevel: 5
-  _initialPrice: 5
+  _initialPriceCoins: 300
+  _initialPriceSoul: 50
+  _initialPriceCrystals: 5

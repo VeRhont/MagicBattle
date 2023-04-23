@@ -14,7 +14,22 @@ public class PlayerWallet: MonoBehaviour
     private void LoadResourcesCount()
     {
         SaveSystem.Instance.LoadResourcesData();
-        UI_Manager.Instance.UpdateResourcesCount(Coins, Soul, Crystals);
+        UI_Manager.Instance.UpdateResourcesCount();
+    }
+
+    public bool IsEnoughMoney(int coinsPrice, int soulPrice, int crystalsPrice)
+    {
+        return (Coins >= coinsPrice) && (Soul >= soulPrice) && (Crystals >= crystalsPrice);
+    }
+
+    public void ReduceResources(int coinsPrice, int soulPrice, int crystalsPrice)
+    {
+        Coins -= coinsPrice;
+        Soul -= soulPrice;
+        Crystals -= crystalsPrice;
+
+        SaveSystem.Instance.SaveResourcesData();
+        UI_Manager.Instance.UpdateResourcesCount();
     }
 
     public int Coins
@@ -25,7 +40,7 @@ public class PlayerWallet: MonoBehaviour
         }
         set
         {
-            if (value > 0) _coins = value;
+            if (value >= 0) _coins = value;
         }
     }
     public int Soul
@@ -36,7 +51,7 @@ public class PlayerWallet: MonoBehaviour
         }
         set
         {
-            if (value > 0) _soul = value;
+            if (value >= 0) _soul = value;
         }
     }
     public int Crystals
@@ -47,7 +62,7 @@ public class PlayerWallet: MonoBehaviour
         }
         set
         {
-            if (value > 0) _crystals = value;
+            if (value >= 0) _crystals = value;
         }
     }
 

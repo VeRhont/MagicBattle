@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c687a6062373f9f4b884e87205e02357, type: 3}
   m_Name: PowerfulChargeUpgrade
   m_EditorClassIdentifier: 
+  _name: powerfulChargeUpgrade
   _iconSprite: {fileID: 2047579025, guid: 21e3e2d71510fe149a407c6250cd30f3, type: 3}
   _maxLevel: 5
-  _initialPrice: 3
+  _initialPriceCoins: 300
+  _initialPriceSoul: 50
+  _initialPriceCrystals: 5

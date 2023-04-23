@@ -9,9 +9,11 @@ public class CraftTableForm : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _soulText;
     [SerializeField] private TextMeshProUGUI _crystalText;
 
+    private CraftableObject _craftableObject;
     private int _coinsPrice;
     private int _soulPrice;
     private int _crystalsPrice;
+    private string _name;
 
     public void SetValues(CraftableObject obj)
     {
@@ -20,33 +22,27 @@ public class CraftTableForm : MonoBehaviour
         _soulText.text = $"{obj.SoulToBuy}";
         _crystalText.text = $"{obj.CrystalsToBuy}";
 
+        _craftableObject = obj;
         _coinsPrice = obj.MoneyToBuy;
         _soulPrice = obj.SoulToBuy;
         _crystalsPrice = obj.CrystalsToBuy;
+        _name = obj.Name;
     }
-
+    
     public void Buy()
     {
-        if (IsEnoughMoney())
+        if (PlayerWallet.Instance.IsEnoughMoney(_coinsPrice, _soulPrice, _crystalsPrice))
         {
-            Destroy(gameObject);
-            PlayerWallet.Instance.Coins -= _coinsPrice;
-            PlayerWallet.Instance.Soul -= _soulPrice;
-            PlayerWallet.Instance.Crystals -= _crystalsPrice;
+            PlayerWallet.Instance.ReduceResources(_coinsPrice, _soulPrice, _crystalsPrice);
 
-            SaveSystem.Instance.SaveResourcesData();
-            UI_Manager.Instance.UpdateResourcesCount(PlayerWallet.Instance.Coins, PlayerWallet.Instance.Soul, PlayerWallet.Instance.Crystals);
+            SaveSystem.Instance.SaveCraftObject(_name);
+            TowerController.Instance.CreateNewForm(_craftableObject.UpgradableObject);
+
+            Destroy(gameObject);
         }
         else
         {
             Debug.Log("NO");
         }
-    }
-
-    private bool IsEnoughMoney()
-    {
-        return (PlayerWallet.Instance.Coins >= _coinsPrice) &&
-            (PlayerWallet.Instance.Soul >= _soulPrice) &&
-            (PlayerWallet.Instance.Crystals >= _crystalsPrice);
     }
 }

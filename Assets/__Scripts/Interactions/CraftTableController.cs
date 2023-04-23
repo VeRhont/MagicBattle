@@ -21,8 +21,15 @@ public class CraftTableController : MonoBehaviour
         _craftableObjects.Reverse();
         foreach (var obj in _craftableObjects)
         {
-            CreateForm(obj);
-            TowerController.Instance.AddUpgradableObject(obj.UpgradableObject);
+            var name = obj.Name;
+            if (PlayerPrefs.GetInt(name, 0) == 1) // if already bought
+            {
+                TowerController.Instance.AddUpgradableObject(obj.UpgradableObject);
+            }
+            else
+            {
+                CreateForm(obj);
+            }
         }
 
         TowerController.Instance.CreateTowerUI();

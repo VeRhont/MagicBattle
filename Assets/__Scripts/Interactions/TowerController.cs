@@ -17,8 +17,6 @@ public class TowerController : MonoBehaviour
 
     public void CreateTowerUI()
     {
-        _upgrades.Reverse();
-
         foreach (var obj in _upgrades)
         {
             CreateForm(obj);
@@ -29,6 +27,12 @@ public class TowerController : MonoBehaviour
     {
         var form = Instantiate(_formPrefab, _contentParent);
         form.GetComponent<TowerUpgradeForm>().SetValues(obj);
+    }
+
+    public void CreateNewForm(UpgradableObject obj)
+    {
+        CreateForm(obj);
+        AddUpgradableObject(obj);
     }
 
     public void ShowUpgradesShopUI()

@@ -3,12 +3,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "UpgradableObject")]
 public class UpgradableObject : ScriptableObject
 {
+    [SerializeField] private string _name;
     [SerializeField] private Sprite _iconSprite;
-    public Sprite IconSprite { get { return _iconSprite; } }
-
     [SerializeField] private int _maxLevel;
-    public int MaxLevel { get { return _maxLevel; } }
+    [SerializeField] private int _initialPriceCoins;
+    [SerializeField] private int _initialPriceSoul;
+    [SerializeField] private int _initialPriceCrystals;
 
-    [SerializeField] private int _initialPrice;
-    public int InitialPrice { get { return _initialPrice; } }
+    public string Name => _name;
+    public Sprite IconSprite => _iconSprite;
+    public int MaxLevel => _maxLevel;
+    public int InitialPriceCoins => _initialPriceCoins; 
+    public int InitialPriceSoul => _initialPriceSoul; 
+    public int InitialPriceCrystals => _initialPriceCrystals; 
 }

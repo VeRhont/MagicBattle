@@ -34,9 +34,13 @@ public class UI_Manager : MonoBehaviour
         _killsCount.SetText($"{currentCount + 1}");
     }
 
-    public void UpdateResourcesCount(int coins, int soul, int crystals)
+    public void UpdateResourcesCount()
     {
         StartCoroutine(ShowResourcesCanvas());
+
+        var coins = PlayerWallet.Instance.Coins;
+        var soul = PlayerWallet.Instance.Soul;
+        var crystals = PlayerWallet.Instance.Crystals;
 
         _coinsCountText.SetText($"{coins}");
         _soulCountText.SetText($"{soul}");
