@@ -6,7 +6,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float _health;
     [SerializeField] protected float _attackDamage;
     [SerializeField] protected float _contactDamage;
-    [SerializeField] private int _pointsForKill;
 
     [SerializeField] private ParticleSystem _deathParticles;
 
@@ -17,6 +16,8 @@ public class Enemy : MonoBehaviour
 
     protected float distanceToPlayer => Vector2.Distance(transform.position, _playerTransform.position);
 
+    private float _currentHealth;
+
     protected virtual void Awake()
     {
         _enemyRb = GetComponent<Rigidbody2D>();
@@ -25,14 +26,16 @@ public class Enemy : MonoBehaviour
         var player = GameObject.FindGameObjectWithTag("Player");
         _playerTransform = player.transform;
         _playerController = player.GetComponent<PlayerController>();
+
+        _currentHealth = _health;
     }
 
     public virtual void TakeDamage(float damage)
     {
-        _health -= damage;
+        _currentHealth -= damage;
         DamageUI.Instance.AddText((int)damage, transform.position);
 
-        if (_health <= 0)
+        if (_currentHealth <= 0)
         {
             Die();
         }
