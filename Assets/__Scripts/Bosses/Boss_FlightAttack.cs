@@ -5,7 +5,6 @@ public class Boss_FlightAttack : StateMachineBehaviour
     [SerializeField] private float _speed;
 
     private Rigidbody2D _rigidBody;
-    private Collider2D[] _colliders;
     private Transform _player;
     private Vector2 _playerPosition;
 
@@ -14,13 +13,7 @@ public class Boss_FlightAttack : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         _rigidBody = animator.GetComponentInParent<Rigidbody2D>();
-        _colliders = _rigidBody.GetComponentsInParent<Collider2D>();
         _player = GameObject.FindGameObjectWithTag("Player").transform;
-
-        foreach (var collider in _colliders)
-        {
-            collider.enabled = false;
-        }
 
         _timer = 20;
     }
@@ -40,13 +33,5 @@ public class Boss_FlightAttack : StateMachineBehaviour
         }
 
         _timer -= Time.fixedDeltaTime;
-    }
-
-    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        foreach (var collider in _colliders)
-        {
-            collider.enabled = true;
-        }
     }
 }

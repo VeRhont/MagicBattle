@@ -19,9 +19,4 @@ public class Boss_Walk : StateMachineBehaviour
 
         _rigidBody.MovePosition(_rigidBody.position + direction * _speed * Time.fixedDeltaTime);
     }
-
-    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-
-    }
 }
