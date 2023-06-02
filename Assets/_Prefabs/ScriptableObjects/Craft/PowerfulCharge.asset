@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PowerfulCharge
   m_EditorClassIdentifier: 
   _name: powerfulCharge
-  _iconSprite: {fileID: 2047579025, guid: 21e3e2d71510fe149a407c6250cd30f3, type: 3}
+  _iconSprite: {fileID: -620108953, guid: fb75a9c305def2b4890db1a016a30dbe, type: 3}
   _moneyToBuy: 200
   _soulToBuy: 5
   _crystalsToBuy: 0

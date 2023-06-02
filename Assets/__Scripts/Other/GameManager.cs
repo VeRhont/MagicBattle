@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -43,7 +44,14 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
-        SaveSystem.Instance.SaveResourcesData();
+        StartCoroutine(UI_Manager.Instance.ChangeKillsToCoins());
+
+        StartCoroutine(FinishGame());
+    } 
+    
+    private IEnumerator FinishGame()
+    {       
+        yield return new WaitForSeconds(3f);
         OnPlayerDie?.Invoke();
-    }   
+    }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HealPotion
   m_EditorClassIdentifier: 
   _name: healPotion
-  _iconSprite: {fileID: -1522970923, guid: 7a9ce7bc84cbfa640b535ea848272ca3, type: 3}
+  _iconSprite: {fileID: 670388533, guid: fb75a9c305def2b4890db1a016a30dbe, type: 3}
   _moneyToBuy: 100
   _soulToBuy: 0
   _crystalsToBuy: 0

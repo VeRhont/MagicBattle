@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7180500482452466785}
   m_Layer: 0
   m_Name: GameObject (1)
-  m_TagString: Untagged
+  m_TagString: Enviroment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 7928696516166362997}
   m_Layer: 0
   m_Name: GameObject
-  m_TagString: Untagged
+  m_TagString: Enviroment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,7 +122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4844499641566183451, guid: 91b237451b9916f4d9fa57adf9c83ac9, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Enviroment
       objectReference: {fileID: 0}
     - target: {fileID: 4844499641566183452, guid: 91b237451b9916f4d9fa57adf9c83ac9, type: 3}
       propertyPath: m_Color.b
@@ -212,7 +212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4844499641566183451, guid: 91b237451b9916f4d9fa57adf9c83ac9, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Enviroment
       objectReference: {fileID: 0}
     - target: {fileID: 4844499641566183452, guid: 91b237451b9916f4d9fa57adf9c83ac9, type: 3}
       propertyPath: m_Color.b

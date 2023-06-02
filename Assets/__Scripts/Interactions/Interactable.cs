@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public class Interactable : MonoBehaviour
 {
     [SerializeField] private GameObject _outline;
+    [SerializeField] private GameObject _button;
     [SerializeField] private KeyCode _keyToInteract;
     [SerializeField] private UnityEvent _interactAction;
     [SerializeField] private UnityEvent _exitRangeAction;
@@ -27,6 +28,7 @@ public class Interactable : MonoBehaviour
         {
             _isInRange = true;
             _outline.SetActive(true);
+            _button.SetActive(true);
         }
     }
 
@@ -36,6 +38,7 @@ public class Interactable : MonoBehaviour
         {
             _isInRange = false;
             _outline.SetActive(false);
+            _button.SetActive(false);
 
             if (_exitRangeAction != null)
             {

@@ -37,7 +37,6 @@ public class ChangeScene : MonoBehaviour
 
     private void ReturnToBase()
     {
-        Debug.Log("here");
         FadeToScene(SceneType.Tower);
     }
 

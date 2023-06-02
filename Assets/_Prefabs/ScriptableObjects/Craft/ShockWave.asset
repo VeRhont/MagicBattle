@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ShockWave
   m_EditorClassIdentifier: 
   _name: shockWave
-  _iconSprite: {fileID: -1231489461, guid: 3a119a5e8c80a2540a2700a86fd6cffd, type: 3}
+  _iconSprite: {fileID: -498949472, guid: fb75a9c305def2b4890db1a016a30dbe, type: 3}
   _moneyToBuy: 1000
   _soulToBuy: 250
   _crystalsToBuy: 30

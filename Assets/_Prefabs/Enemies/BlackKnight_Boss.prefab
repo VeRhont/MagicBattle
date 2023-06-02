@@ -832,7 +832,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 184433574257247855}
-  - component: {fileID: 184433574257247853}
   m_Layer: 6
   m_Name: BlackKnight_Boss
   m_TagString: Enemy
@@ -856,17 +855,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!210 &184433574257247853
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 184433574257247854}
-  m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
 --- !u!1 &184433574318011596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1050,6 +1038,7 @@ GameObject:
   - component: {fileID: 324260627}
   - component: {fileID: 324260628}
   - component: {fileID: 324260623}
+  - component: {fileID: 1124251210}
   m_Layer: 6
   m_Name: BlackKnight
   m_TagString: Enemy
@@ -1205,6 +1194,17 @@ MonoBehaviour:
   _deathParticles: {fileID: 0}
   _distanceToTeleport: 15
   _timeBetweenDistanceCheck: 2
+--- !u!210 &1124251210
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184433574422931284}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
 --- !u!1 &184433574698100726
 GameObject:
   m_ObjectHideFlags: 0

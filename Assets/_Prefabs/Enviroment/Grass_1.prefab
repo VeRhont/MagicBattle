@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 4823119364048055894}
   - component: {fileID: 4823119364048055895}
   - component: {fileID: 4823119364048055892}
+  - component: {fileID: 8793929143899926213}
   m_Layer: 0
   m_Name: Grass_1
   m_TagString: Enviroment
@@ -191,6 +192,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &8793929143899926213
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4823119364048055848}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.26473212, y: 0.48060507}
+  serializedVersion: 2
+  m_Radius: 0.40429592
 --- !u!1 &6721925218300278446
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,7 +233,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6721925218300278446}
   m_LocalRotation: {x: -0, y: -0, z: 0.15407985, w: 0.98805845}
-  m_LocalPosition: {x: 0.073, y: -0.228, z: 0}
+  m_LocalPosition: {x: 0.06, y: -0.18, z: 0}
   m_LocalScale: {x: 2.1699975, y: 2.1699975, z: 2.1699977}
   m_ConstrainProportionsScale: 0
   m_Children: []

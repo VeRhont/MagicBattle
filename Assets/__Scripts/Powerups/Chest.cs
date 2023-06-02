@@ -9,6 +9,7 @@ public class Chest : MonoBehaviour
     private int _maxCount;
 
     private ParticleSystem _particles;
+    private AudioClip _pickupSound;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -34,9 +35,9 @@ public class Chest : MonoBehaviour
             }
             
             UI_Manager.Instance.UpdateResourcesCount();
-
             DamageUI.Instance.AddText(randomCount, collision.transform.position + Vector3.up);
-            
+            AudioManager.Instance.PlaySound(_pickupSound);
+
             Destroy(gameObject);
         }
     }
@@ -48,5 +49,6 @@ public class Chest : MonoBehaviour
         _minCount = chest.MinCount;
         _maxCount = chest.MaxCount;
         _particles = chest.Particles;
+        _pickupSound = chest.PickupSound;
     }
 }

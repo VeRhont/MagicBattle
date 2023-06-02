@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2964289605845657297}
   m_LocalRotation: {x: -0, y: -0, z: 0.11643236, w: 0.9931987}
-  m_LocalPosition: {x: 0.022, y: 0.087, z: 0}
+  m_LocalPosition: {x: -0.018, y: 0.255, z: 0}
   m_LocalScale: {x: 1.675, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3927393576319986981}
   - component: {fileID: 3927393576319986980}
+  - component: {fileID: 8240656078709745928}
   m_Layer: 0
   m_Name: StoneSmall_3
   m_TagString: Enviroment
@@ -170,6 +171,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &8240656078709745928
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3927393576319986987}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.048879147, y: 0.27689564}
+  serializedVersion: 2
+  m_Radius: 0.46846008
 --- !u!1 &5588129814286813428
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,7 +212,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5588129814286813428}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.037, y: -0.156, z: 0}
+  m_LocalPosition: {x: 0.037, y: 0.011, z: 0}
   m_LocalScale: {x: 0.71716, y: 0.71716, z: 0.71716}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -136,6 +136,6 @@ public class PlayerShooting : MonoBehaviour
 
     private void LoadWeaponData()
     {
-        SaveSystem.Instance.LoadWeaponData();
+        var weaponData = SaveSystem.Instance.LoadWeaponData();
     }
 }

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: LaserUpgrade
   m_EditorClassIdentifier: 
   _name: laserUpgrade
-  _iconSprite: {fileID: 21300000, guid: f9b9c55fccfc2d643aab48f2bb6539be, type: 3}
+  _iconSprite: {fileID: 324550376, guid: fb75a9c305def2b4890db1a016a30dbe, type: 3}
   _maxLevel: 5
   _initialPriceCoins: 300
   _initialPriceSoul: 50
   _initialPriceCrystals: 5
+  _initialValue: 0

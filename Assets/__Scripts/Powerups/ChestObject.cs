@@ -16,6 +16,7 @@ public class ChestObject : ScriptableObject
     [SerializeField] private int _maxCount;
     [SerializeField, Range(0, 1)] private float _valueToSpawn;
     [SerializeField] private ParticleSystem _particles;
+    [SerializeField] private AudioClip _pickupSound;
 
     public ChestType Type { get { return _type; } }
     public Sprite ChestSprite { get { return _chestSprite; } }
@@ -23,4 +24,5 @@ public class ChestObject : ScriptableObject
     public int MaxCount { get { return _maxCount; } }
     public float ValueToSpawn { get { return _valueToSpawn; } }
     public ParticleSystem Particles { get { return _particles; } }
+    public AudioClip PickupSound { get { return _pickupSound; } }
 }

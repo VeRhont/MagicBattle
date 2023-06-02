@@ -8,6 +8,8 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
+
         _audioSource = GetComponent<AudioSource>();
     }
 
@@ -15,6 +17,6 @@ public class AudioManager : MonoBehaviour
     {
         _audioSource.pitch = Random.Range(0.8f, 1.2f);
         _audioSource.panStereo = Random.Range(-0.2f, 0.2f);
-        _audioSource.Play();
+        _audioSource.PlayOneShot(audioClip);
     }
 }

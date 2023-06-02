@@ -17,4 +17,5 @@ MonoBehaviour:
   _minCount: 1
   _maxCount: 3
   _valueToSpawn: 1
-  _particles: {fileID: 8067937340310914434, guid: 1928c97ada5a9a0429b51c254a72b2cb, type: 3}
+  _particles: {fileID: 2426258384832827019, guid: 03c391018232bb742aa052b24b5ed744, type: 3}
+  _pickupSound: {fileID: 8300000, guid: 7e47a2e50f0b89b4290d21802a58d91a, type: 3}

@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5647477632001601761}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.033, y: 0.198, z: 0}
+  m_LocalPosition: {x: 0.033, y: 0.253, z: 0}
   m_LocalScale: {x: 1, y: 0.675, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 5647477632021254599}
   - component: {fileID: 5647477632021254592}
   - component: {fileID: -1238343606250835171}
+  - component: {fileID: 6221713930904407015}
   m_Layer: 9
   m_Name: Mushroom_2
   m_TagString: Enviroment
@@ -203,6 +204,22 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!58 &6221713930904407015
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5647477632021254596}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.008949071, y: 0.24753767}
+  serializedVersion: 2
+  m_Radius: 0.1824866
 --- !u!1 &5647477632821440825
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,7 +245,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5647477632821440825}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.303, z: 0}
+  m_LocalPosition: {x: 0, y: -0.111, z: 0}
   m_LocalScale: {x: 0.7994453, y: 0.47408962, z: 0.74367}
   m_ConstrainProportionsScale: 0
   m_Children: []

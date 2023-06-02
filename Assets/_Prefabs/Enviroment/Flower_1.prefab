@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6089543262753962766}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.068, z: 0}
+  m_LocalPosition: {x: 0, y: 0.078, z: 0}
   m_LocalScale: {x: 1.3639903, y: 1.3639903, z: 1.3639903}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6089543262929620798}
   - component: {fileID: 6089543262929620799}
+  - component: {fileID: 2916876897521964914}
   m_Layer: 0
   m_Name: Flower_1
   m_TagString: Enviroment
@@ -169,3 +170,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &2916876897521964914
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6089543262929620784}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.034194767, y: 0.13191268}
+  serializedVersion: 2
+  m_Radius: 0.21567935

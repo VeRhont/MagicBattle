@@ -33,7 +33,9 @@ public class Enemy : MonoBehaviour
     public virtual void TakeDamage(float damage)
     {
         _currentHealth -= damage;
+
         DamageUI.Instance.AddText((int)damage, transform.position);
+        _enemyAnimator.SetTrigger("TakeDamage");
 
         if (_currentHealth <= 0)
         {

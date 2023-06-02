@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _speedDuringShooting;
     [SerializeField] private float _speedDuringCharging;
     [SerializeField] private float _speedInSlime;
+    private bool _isAlive = true;
     private float _currentSpeed;
     private float _health;
     private int _score;
@@ -33,7 +34,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _playerRb;
     private Animator _playerAnimator;
 
-
     private void Awake()
     {
         if (Instance == null)
@@ -46,10 +46,10 @@ public class PlayerController : MonoBehaviour
         _weaponRb = _weapon.GetComponent<Rigidbody2D>();
         _playerAnimator = GetComponent<Animator>();
 
+        LoadPlayerData();
+
         _health = _maxHealth;
         _currentSpeed = _normalSpeed;
-
-        LoadPlayerData();
     }
 
     private void GetInput()
@@ -65,7 +65,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-
         FlipPlayer();
         GetInput();
         RotateWeapon();
@@ -120,8 +119,9 @@ public class PlayerController : MonoBehaviour
         _health = Mathf.Clamp(_health - damage, 0, _maxHealth);
         UpdateHealthBar();
 
-        if (_health == 0)
+        if (_health == 0 && _isAlive)
         {
+            _isAlive = false;
             Die();
         }
     }
@@ -161,6 +161,9 @@ public class PlayerController : MonoBehaviour
 
     private void LoadPlayerData()
     {
-        SaveSystem.Instance.LoadPlayerData();
+        var playerData = SaveSystem.Instance.LoadPlayerData();
+
+        _maxHealth = playerData._maxHealth;
+        _normalSpeed = playerData._speed;
     }
 }

@@ -22,6 +22,7 @@ public class TowerUpgradeForm : MonoBehaviour
     private int _coinsPrice;
     private int _soulPrice;
     private int _crystalsPrice;
+    private float _value;
 
     public void SetValues(UpgradableObject obj)
     {
@@ -31,7 +32,8 @@ public class TowerUpgradeForm : MonoBehaviour
         _soulPrice = _upgradableObject.InitialPriceSoul;
         _crystalsPrice = _upgradableObject.InitialPriceCrystals;
 
-        _currentLevel = SaveSystem.Instance.LoadUpgradeLevel(_name);
+        _currentLevel = (int)SaveSystem.Instance.LoadUpgradeLevel(_name).x;
+        _value = Mathf.Max(_upgradableObject.InitialValue, SaveSystem.Instance.LoadUpgradeLevel(_name).y);
 
         UpdateUI();
         CreateEmptySlots();
@@ -71,13 +73,13 @@ public class TowerUpgradeForm : MonoBehaviour
 
     public void BuyUpgrade()
     {
-
         if ((_currentLevel < _maxLevel) && (PlayerWallet.Instance.IsEnoughMoney(_coinsPrice, _soulPrice, _crystalsPrice)))
         {
             _currentLevel++;
+            _value = (int)(_value * 1.5f);
 
             PlayerWallet.Instance.ReduceResources(_coinsPrice, _soulPrice, _crystalsPrice);
-            SaveSystem.Instance.SaveUpgradeLevel(_name, _currentLevel);
+            SaveSystem.Instance.SaveUpgradeLevel(_name, _currentLevel, _value);          
 
             _coinsPrice = (int)(_coinsPrice * 1.5f);
             _soulPrice = (int)(_soulPrice * 1.5f);

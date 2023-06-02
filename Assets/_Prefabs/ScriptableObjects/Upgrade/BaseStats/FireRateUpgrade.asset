@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: FireRateUpgrade
   m_EditorClassIdentifier: 
   _name: fireRateUpgrade
-  _iconSprite: {fileID: 219188999, guid: 21e3e2d71510fe149a407c6250cd30f3, type: 3}
+  _iconSprite: {fileID: 1414870994, guid: fb75a9c305def2b4890db1a016a30dbe, type: 3}
   _maxLevel: 6
   _initialPriceCoins: 100
   _initialPriceSoul: 10
   _initialPriceCrystals: 1
+  _initialValue: 5

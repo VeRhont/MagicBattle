@@ -21,6 +21,24 @@ public class BlackKnight : Enemy
         }
     }
 
+    private void Update()
+    {
+        if (Random.Range(1, 3000) == 1)
+        {
+            _enemyAnimator.SetTrigger("FlightAttack");
+        }
+    }
+
+    public override void TakeDamage(float damage)
+    {
+        base.TakeDamage(damage);
+
+        if ((Random.value < 0.1f) && (_playerTransform.position.x > transform.position.x))
+        {
+            _enemyAnimator.SetTrigger("Defence");
+        }
+    }
+
     public void OnEnableColliders()
     {
         foreach (var collider in _colliders)
@@ -52,16 +70,6 @@ public class BlackKnight : Enemy
         _enemyAnimator.ResetTrigger("DestroyObstacles");
     }
 
-    public override void TakeDamage(float damage)
-    {
-        base.TakeDamage(damage);
-
-        if (Random.value < 0.1f)
-        {
-            _enemyAnimator.SetTrigger("Defence");
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -73,6 +81,10 @@ public class BlackKnight : Enemy
             else
             {
                 _enemyAnimator.SetTrigger("LeftAttack");
+                if (Random.value < 0.3f)
+                {
+                    _enemyAnimator.SetTrigger("DashLeft");
+                }
             }
         }
     }

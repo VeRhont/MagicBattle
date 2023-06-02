@@ -9,11 +9,13 @@ public class UpgradableObject : ScriptableObject
     [SerializeField] private int _initialPriceCoins;
     [SerializeField] private int _initialPriceSoul;
     [SerializeField] private int _initialPriceCrystals;
+    [SerializeField] private float _initialValue;
 
     public string Name => _name;
     public Sprite IconSprite => _iconSprite;
     public int MaxLevel => _maxLevel;
     public int InitialPriceCoins => _initialPriceCoins; 
     public int InitialPriceSoul => _initialPriceSoul; 
-    public int InitialPriceCrystals => _initialPriceCrystals; 
+    public int InitialPriceCrystals => _initialPriceCrystals;
+    public float InitialValue => _initialValue;
 }

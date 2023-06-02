@@ -7,6 +7,8 @@ public class UI_Manager : MonoBehaviour
 {
     public static UI_Manager Instance;
 
+    public int KillsCount { get { return int.Parse(_killsCount.text); } }
+
     [Header("PlayerStats")]
     [SerializeField] private Image _healthBarImage;
     [SerializeField] private TextMeshProUGUI _killsCount;
@@ -30,8 +32,31 @@ public class UI_Manager : MonoBehaviour
 
     public void IncreaseKillsCount()
     {
-        int currentCount = int.Parse(_killsCount.text);
+        int currentCount = KillsCount;
         _killsCount.SetText($"{currentCount + 1}");
+    }
+
+    public void DecreaseKillsCount()
+    {
+        int currentCount = KillsCount;
+        _killsCount.SetText($"{currentCount - 1}");
+    }
+
+    public IEnumerator ChangeKillsToCoins()
+    {
+        EnableResourcesCanvas();
+
+        for (int i = KillsCount; i > 0; i--)
+        {
+            DecreaseKillsCount();
+            PlayerWallet.Instance.Coins += 2;
+
+            _coinsCountText.SetText($"{PlayerWallet.Instance.Coins}");
+
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        SaveSystem.Instance.SaveResourcesData();
     }
 
     public void UpdateResourcesCount()
