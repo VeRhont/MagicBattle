@@ -33,6 +33,8 @@ public class CraftTableForm : MonoBehaviour
     {
         if (PlayerWallet.Instance.IsEnoughMoney(_coinsPrice, _soulPrice, _crystalsPrice))
         {
+            AudioManager.Instance.PlayBuySound();
+
             PlayerWallet.Instance.ReduceResources(_coinsPrice, _soulPrice, _crystalsPrice);
 
             SaveSystem.Instance.SaveCraftObject(_name);

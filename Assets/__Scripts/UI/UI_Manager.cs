@@ -45,6 +45,7 @@ public class UI_Manager : MonoBehaviour
     public IEnumerator ChangeKillsToCoins()
     {
         EnableResourcesCanvas();
+        float waitTime = 3f / KillsCount;
 
         for (int i = KillsCount; i > 0; i--)
         {
@@ -53,7 +54,7 @@ public class UI_Manager : MonoBehaviour
 
             _coinsCountText.SetText($"{PlayerWallet.Instance.Coins}");
 
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(waitTime);
         }
 
         SaveSystem.Instance.SaveResourcesData();

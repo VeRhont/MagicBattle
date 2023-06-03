@@ -57,7 +57,9 @@ public class EnemySpawnManager : MonoBehaviour
         if (_aliveEnemiesCount <= 0)
         {
             _waveNumber++;
-            StartCoroutine(SpawnEnemyWave(_waveNumber / 2 + 1, _spawnRange));
+
+            var enemiesToSpawn = _waveNumber / 2 + 1;
+            StartCoroutine(SpawnEnemyWave(enemiesToSpawn, _spawnRange));
 
             if (_waveNumber <= 7)
             {
@@ -67,10 +69,12 @@ public class EnemySpawnManager : MonoBehaviour
             {
                 // 8..15 Slime and ZombieBoss
                 _possibleSpawns.Add(EnemyType.Zombie);
+                _possibleSpawns.Add(EnemyType.Zombie);
                 _possibleSpawns.Add(EnemyType.Fly);
                 _possibleSpawns.Add(EnemyType.Fly);
-                _possibleSpawns.Add(EnemyType.Slime);
                 _possibleSpawns.Add(EnemyType.Spikey);
+                _possibleSpawns.Add(EnemyType.Spikey);
+                _possibleSpawns.Add(EnemyType.Slime);
                 _possibleSpawns.Add(EnemyType.ZombieBoss);
             }
             else if (_waveNumber <= 25)
@@ -78,8 +82,8 @@ public class EnemySpawnManager : MonoBehaviour
                 // 16..25 Wormholl and FlyBoss
                 _possibleSpawns.Add(EnemyType.Zombie);
                 _possibleSpawns.Add(EnemyType.Fly);
-                _possibleSpawns.Add(EnemyType.Slime);
                 _possibleSpawns.Add(EnemyType.Spikey);
+                _possibleSpawns.Add(EnemyType.Slime);
                 _possibleSpawns.Add(EnemyType.Wormholl);
                 _possibleSpawns.Add(EnemyType.FlyBoss);
             }

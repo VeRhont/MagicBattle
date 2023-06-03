@@ -4,6 +4,9 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
+    [SerializeField] private AudioClip _clickSound;
+    [SerializeField] private AudioClip _buySound;
+
     private AudioSource _audioSource;
 
     private void Awake()
@@ -18,5 +21,15 @@ public class AudioManager : MonoBehaviour
         _audioSource.pitch = Random.Range(0.8f, 1.2f);
         _audioSource.panStereo = Random.Range(-0.2f, 0.2f);
         _audioSource.PlayOneShot(audioClip);
+    }
+
+    public void PlayClickSound()
+    {
+        PlaySound(_clickSound);
+    }
+
+    public void PlayBuySound()
+    {
+        PlaySound(_buySound);
     }
 }

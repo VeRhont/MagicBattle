@@ -75,6 +75,8 @@ public class TowerUpgradeForm : MonoBehaviour
     {
         if ((_currentLevel < _maxLevel) && (PlayerWallet.Instance.IsEnoughMoney(_coinsPrice, _soulPrice, _crystalsPrice)))
         {
+            AudioManager.Instance.PlayBuySound();
+
             _currentLevel++;
             _value = (int)(_value * 1.5f);
 

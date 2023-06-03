@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float _attackDamage;
     [SerializeField] protected float _contactDamage;
 
+    [Header("Effects and sounds")]
     [SerializeField] private ParticleSystem _deathParticles;
 
     protected Rigidbody2D _enemyRb;

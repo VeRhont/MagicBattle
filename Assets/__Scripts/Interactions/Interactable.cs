@@ -17,6 +17,7 @@ public class Interactable : MonoBehaviour
         {
             if (Input.GetKeyDown(_keyToInteract))
             {
+                AudioManager.Instance.PlayClickSound();
                 _interactAction?.Invoke();
             }
         }
