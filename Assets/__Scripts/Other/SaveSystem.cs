@@ -95,6 +95,13 @@ public class SaveSystem : MonoBehaviour
         PlayerPrefs.SetInt(name, 1);
     }
 
+    public void SaveObjectPrices(string name, int coinsPrice, int soulPrice, int crystalsPrice)
+    {
+        PlayerPrefs.SetInt($"{name}Coins", coinsPrice);
+        PlayerPrefs.SetInt($"{name}Soul", soulPrice);
+        PlayerPrefs.SetInt($"{name}Crystals", crystalsPrice);
+    }
+
     public void SaveResourcesData()
     {
         PlayerPrefs.SetInt("coinsCount", PlayerWallet.Instance.Coins);

@@ -6,6 +6,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioClip _clickSound;
     [SerializeField] private AudioClip _buySound;
+    [SerializeField] private AudioClip _cancelSound;
 
     private AudioSource _audioSource;
 
@@ -31,5 +32,10 @@ public class AudioManager : MonoBehaviour
     public void PlayBuySound()
     {
         PlaySound(_buySound);
+    }
+
+    public void PlayCancelSound()
+    {
+        PlaySound(_cancelSound);
     }
 }

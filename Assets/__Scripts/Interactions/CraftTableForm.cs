@@ -34,8 +34,7 @@ public class CraftTableForm : MonoBehaviour
         if (PlayerWallet.Instance.IsEnoughMoney(_coinsPrice, _soulPrice, _crystalsPrice))
         {
             AudioManager.Instance.PlayBuySound();
-
-            PlayerWallet.Instance.ReduceResources(_coinsPrice, _soulPrice, _crystalsPrice);
+            PlayerWallet.Instance.ReduceResources(_coinsPrice, _soulPrice, _crystalsPrice, showCanvas:false);
 
             SaveSystem.Instance.SaveCraftObject(_name);
             TowerController.Instance.CreateNewForm(_craftableObject.UpgradableObject);
@@ -44,7 +43,7 @@ public class CraftTableForm : MonoBehaviour
         }
         else
         {
-            Debug.Log("NO");
+            AudioManager.Instance.PlayCancelSound();
         }
     }
 }

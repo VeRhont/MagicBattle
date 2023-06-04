@@ -22,18 +22,20 @@ public class TowerUpgradeForm : MonoBehaviour
     private int _coinsPrice;
     private int _soulPrice;
     private int _crystalsPrice;
-    private float _value;
+    private float _currentValue;
+    private float _addForLevel;
 
     public void SetValues(UpgradableObject obj)
     {
         _upgradableObject = obj;
         _name = _upgradableObject.Name;
-        _coinsPrice = _upgradableObject.InitialPriceCoins;
-        _soulPrice = _upgradableObject.InitialPriceSoul;
-        _crystalsPrice = _upgradableObject.InitialPriceCrystals;
+        _addForLevel = _upgradableObject.AddForLevel;
+        _coinsPrice = Mathf.Max(_upgradableObject.InitialPriceCoins, PlayerPrefs.GetInt($"{_name}Coins"));
+        _soulPrice = Mathf.Max(_upgradableObject.InitialPriceSoul, PlayerPrefs.GetInt($"{_name}Soul", _soulPrice));
+        _crystalsPrice = Mathf.Max(_upgradableObject.InitialPriceCrystals, PlayerPrefs.GetInt($"{_name}Crystals", _crystalsPrice));     
 
         _currentLevel = (int)SaveSystem.Instance.LoadUpgradeLevel(_name).x;
-        _value = Mathf.Max(_upgradableObject.InitialValue, SaveSystem.Instance.LoadUpgradeLevel(_name).y);
+        _currentValue = Mathf.Max(_upgradableObject.InitialValue, SaveSystem.Instance.LoadUpgradeLevel(_name).y);
 
         UpdateUI();
         CreateEmptySlots();
@@ -78,17 +80,22 @@ public class TowerUpgradeForm : MonoBehaviour
             AudioManager.Instance.PlayBuySound();
 
             _currentLevel++;
-            _value = (int)(_value * 1.5f);
-
-            PlayerWallet.Instance.ReduceResources(_coinsPrice, _soulPrice, _crystalsPrice);
-            SaveSystem.Instance.SaveUpgradeLevel(_name, _currentLevel, _value);          
+            _currentValue += _addForLevel;
 
             _coinsPrice = (int)(_coinsPrice * 1.5f);
             _soulPrice = (int)(_soulPrice * 1.5f);
             _crystalsPrice = (int)(_crystalsPrice * 1.5f);
 
-            UpdateUI();
+            PlayerWallet.Instance.ReduceResources(_coinsPrice, _soulPrice, _crystalsPrice, showCanvas:false);
+            SaveSystem.Instance.SaveUpgradeLevel(_name, _currentLevel, _currentValue);
+            SaveSystem.Instance.SaveObjectPrices(_name, _coinsPrice, _soulPrice, _crystalsPrice);
+
             UpdateFilledSlots();
+            UpdateUI();
+        }
+        else
+        {
+            AudioManager.Instance.PlayCancelSound();
         }
     }
 }

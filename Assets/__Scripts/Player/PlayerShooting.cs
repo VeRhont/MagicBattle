@@ -30,7 +30,6 @@ public class PlayerShooting : MonoBehaviour
     private GameObject _laserBeam;
     private LaserBeam _line;
 
-
     private void Awake()
     {
         LoadWeaponData();

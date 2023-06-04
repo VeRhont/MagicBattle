@@ -38,11 +38,13 @@ public class TowerController : MonoBehaviour
     public void ShowUpgradesShopUI()
     {
         _canvas.SetActive(true);
+        UI_Manager.Instance.EnableResourcesCanvas();
     }
 
     public void HideUpgradesShopUI()
     {
         _canvas.SetActive(false);
+        UI_Manager.Instance.DisableResourcesCanvas();
     }
 
     public void AddUpgradableObject(UpgradableObject obj)

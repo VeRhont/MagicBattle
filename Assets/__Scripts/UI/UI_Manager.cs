@@ -60,9 +60,10 @@ public class UI_Manager : MonoBehaviour
         SaveSystem.Instance.SaveResourcesData();
     }
 
-    public void UpdateResourcesCount()
+    public void UpdateResourcesCount(bool showCanvas=true)
     {
-        StartCoroutine(ShowResourcesCanvas());
+        Debug.Log(showCanvas);
+        if (showCanvas) StartCoroutine(ShowResourcesCanvas());
 
         var coins = PlayerWallet.Instance.Coins;
         var soul = PlayerWallet.Instance.Soul;

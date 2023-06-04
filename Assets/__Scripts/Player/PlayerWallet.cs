@@ -22,14 +22,14 @@ public class PlayerWallet: MonoBehaviour
         return (Coins >= coinsPrice) && (Soul >= soulPrice) && (Crystals >= crystalsPrice);
     }
 
-    public void ReduceResources(int coinsPrice, int soulPrice, int crystalsPrice)
+    public void ReduceResources(int coinsPrice, int soulPrice, int crystalsPrice, bool showCanvas=true)
     {
         Coins -= coinsPrice;
         Soul -= soulPrice;
         Crystals -= crystalsPrice;
 
         SaveSystem.Instance.SaveResourcesData();
-        UI_Manager.Instance.UpdateResourcesCount();
+        UI_Manager.Instance.UpdateResourcesCount(showCanvas);
     }
 
     public int Coins

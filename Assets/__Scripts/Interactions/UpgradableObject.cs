@@ -10,6 +10,7 @@ public class UpgradableObject : ScriptableObject
     [SerializeField] private int _initialPriceSoul;
     [SerializeField] private int _initialPriceCrystals;
     [SerializeField] private float _initialValue;
+    [SerializeField] private float _addForLevel;
 
     public string Name => _name;
     public Sprite IconSprite => _iconSprite;
@@ -18,4 +19,5 @@ public class UpgradableObject : ScriptableObject
     public int InitialPriceSoul => _initialPriceSoul; 
     public int InitialPriceCrystals => _initialPriceCrystals;
     public float InitialValue => _initialValue;
+    public float AddForLevel => _addForLevel;
 }

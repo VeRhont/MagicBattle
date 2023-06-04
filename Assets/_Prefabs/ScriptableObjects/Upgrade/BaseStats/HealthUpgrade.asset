@@ -19,3 +19,4 @@ MonoBehaviour:
   _initialPriceSoul: 10
   _initialPriceCrystals: 1
   _initialValue: 100
+  _addForLevel: 20
