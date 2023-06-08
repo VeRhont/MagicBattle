@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c687a6062373f9f4b884e87205e02357, type: 3}
   m_Name: RingOfPortal
   m_EditorClassIdentifier: 
-  _name: ringOfPortalUpgrade
+  _name: portalRingUpgrade
   _iconSprite: {fileID: -1258665235, guid: fb75a9c305def2b4890db1a016a30dbe, type: 3}
   _maxLevel: 5
   _initialPriceCoins: 300
   _initialPriceSoul: 50
   _initialPriceCrystals: 5
-  _initialValue: 0
+  _initialValue: 30
+  _addForLevel: -3

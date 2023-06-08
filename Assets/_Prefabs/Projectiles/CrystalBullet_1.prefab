@@ -94,8 +94,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1567159256907377878}
   - component: {fileID: 1567159256907377879}
-  - component: {fileID: 1567159256907377880}
   - component: {fileID: 1756420282437008067}
+  - component: {fileID: 506412807}
   m_Layer: 11
   m_Name: CrystalBullet_1
   m_TagString: Untagged
@@ -140,22 +140,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1567159256907377880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1567159256907377881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99dc82aeeec600b4ea6e10f617176e3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hitEffect: {fileID: 8067937340310914444, guid: 1928c97ada5a9a0429b51c254a72b2cb, type: 3}
-  _damage: 15
-  _lifeTime: 3
-  _speed: 10
 --- !u!58 &1756420282437008067
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -172,3 +156,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.17708477
+--- !u!114 &506412807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567159256907377881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31096ec42d986c9458cae071a4b533f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hitEffect: {fileID: 8067937340310914444, guid: 1928c97ada5a9a0429b51c254a72b2cb, type: 3}
+  _damage: 15
+  _lifeTime: 3
+  _speed: 10

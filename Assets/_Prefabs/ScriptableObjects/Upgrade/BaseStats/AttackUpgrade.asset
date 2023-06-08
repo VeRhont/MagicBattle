@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: damageUpgrade
   _iconSprite: {fileID: 622037428, guid: fb75a9c305def2b4890db1a016a30dbe, type: 3}
-  _maxLevel: 6
+  _maxLevel: 5
   _initialPriceCoins: 100
   _initialPriceSoul: 10
   _initialPriceCrystals: 1

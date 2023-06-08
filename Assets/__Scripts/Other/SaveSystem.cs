@@ -1,27 +1,26 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public struct PlayerData
 {
-    public float _maxHealth;
-    public float _speed;
+    public float MaxHealth;
+    public float Speed;
 
     public PlayerData(float maxHealth, float speed)
     {
-        _maxHealth = maxHealth;
-        _speed = speed;
+        MaxHealth = maxHealth;
+        Speed = speed;
     }
 }
 
 public struct WeaponData
 {
-    public float _damage;
-    public float _fireRate;
+    public float Damage;
+    public float FireRate;
 
     public WeaponData(float damage, float fireRate)
     {
-        _damage = damage;
-        _fireRate = fireRate;
+        Damage = damage;
+        FireRate = fireRate;
     }
 }
 
@@ -36,28 +35,13 @@ public class SaveSystem : MonoBehaviour
 
     private void OnEnable()
     {
-        //GameManager.Instance.OnPlayerDie += SavePlayerData;
         GameManager.Instance.OnPlayerDie += SaveResourcesData;
     }
 
     private void OnDisable()
     {
-        //GameManager.Instance.OnPlayerDie -= SavePlayerData;
         GameManager.Instance.OnPlayerDie -= SaveResourcesData;
     }
-
-    //public void SavePlayerData()
-    //{        
-    //    Debug.Log("Player data saved");
-
-    //    PlayerPrefs.SetFloat("maxHealth", 1);
-    //    PlayerPrefs.SetFloat("speed", 1);
-    //}
-
-    //public void SaveWeaponData()
-    //{
-    //    Debug.Log("Weapon data saved");
-    //}
 
     public PlayerData LoadPlayerData()
     {
@@ -73,8 +57,8 @@ public class SaveSystem : MonoBehaviour
     {
         Debug.Log("Weapon data loaded");
 
-        var damage = PlayerPrefs.GetFloat("damageUpgradeValue");
-        var fireRate = PlayerPrefs.GetFloat("fireRateUpgradeValue");
+        var damage = PlayerPrefs.GetFloat("damageUpgradeValue", 10);
+        var fireRate = PlayerPrefs.GetFloat("fireRateUpgradeValue", 0.5f);
 
         return new WeaponData(damage, fireRate);
     }
@@ -87,7 +71,7 @@ public class SaveSystem : MonoBehaviour
 
     public Vector2 LoadUpgradeLevel(string name)
     {
-        return new Vector2(PlayerPrefs.GetInt($"{name}Upgrade", 0), PlayerPrefs.GetInt($"{name}Value", 0));
+        return new Vector2(PlayerPrefs.GetInt($"{name}Upgrade", 0), PlayerPrefs.GetFloat($"{name}Value", 0));
     }
 
     public void SaveCraftObject(string name)

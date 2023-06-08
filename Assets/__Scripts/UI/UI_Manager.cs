@@ -42,7 +42,7 @@ public class UI_Manager : MonoBehaviour
         _killsCount.SetText($"{currentCount - 1}");
     }
 
-    public IEnumerator ChangeKillsToCoins()
+    public IEnumerator ChangeKillsToResourses()
     {
         EnableResourcesCanvas();
         float waitTime = 3f / KillsCount;
@@ -51,8 +51,19 @@ public class UI_Manager : MonoBehaviour
         {
             DecreaseKillsCount();
             PlayerWallet.Instance.Coins += 2;
-
             _coinsCountText.SetText($"{PlayerWallet.Instance.Coins}");
+
+            if (i % 10 == 0)
+            {
+                PlayerWallet.Instance.Soul += 1;
+                _soulCountText.SetText($"{PlayerWallet.Instance.Soul}");
+            }
+
+            if (i % 100 == 0)
+            {
+                PlayerWallet.Instance.Crystals += 1;
+                _crystalsCountText.SetText($"{PlayerWallet.Instance.Crystals}");
+            }
 
             yield return new WaitForSeconds(waitTime);
         }

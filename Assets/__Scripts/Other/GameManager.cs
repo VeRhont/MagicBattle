@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
-        StartCoroutine(UI_Manager.Instance.ChangeKillsToCoins());
+        StartCoroutine(UI_Manager.Instance.ChangeKillsToResourses());
 
         StartCoroutine(FinishGame());
     } 

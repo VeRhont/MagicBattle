@@ -15,7 +15,7 @@ public class LaserBeam : MonoBehaviour
         _lineRenderer = GetComponent<LineRenderer>();
     }
 
-    public void SetPoints(Transform firePoint)
+    public void SetPoints(Transform firePoint, int damage)
     {
         var hitInfo = Physics2D.Raycast(firePoint.position, firePoint.up);
         var hitPosition = new Vector2(hitInfo.point.x, hitInfo.point.y);
@@ -23,7 +23,7 @@ public class LaserBeam : MonoBehaviour
         if (hitInfo.transform.gameObject.CompareTag("Enemy"))
         {
             Instantiate(_impactEffect, hitPosition, _impactEffect.transform.rotation);
-            Attack(hitInfo.transform.gameObject.GetComponent<Enemy>());
+            Attack(hitInfo.transform.gameObject.GetComponent<Enemy>(), damage);
         }       
 
         _lineRenderer.SetPosition(0, firePoint.position);
@@ -31,8 +31,8 @@ public class LaserBeam : MonoBehaviour
     }
 
 
-    private void Attack(Enemy enemy)
+    private void Attack(Enemy enemy, int damage)
     {
-        enemy.TakeDamage(1);
+        enemy.TakeDamage(damage);
     }
 }

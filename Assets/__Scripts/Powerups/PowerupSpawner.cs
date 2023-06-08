@@ -37,8 +37,12 @@ public class PowerupSpawner : MonoBehaviour
     private void Start()
     {
         Invoke("SpawnChest", _timeBetweenChestSpawn);
-        Invoke("SpawnHealPotion", _timeBetweenHealPotionSpawn);
-        Invoke("SpawnLaserPowerup", _timeBetweenLaserPowerupSpawn);
+
+        if (PlayerPrefs.GetInt("healPotion", 0) == 1) // if health potion is bought
+            Invoke("SpawnHealPotion", _timeBetweenHealPotionSpawn);
+
+        if (PlayerPrefs.GetInt("laserPowerup", 0) == 1) // if laser is bought
+            Invoke("SpawnLaserPowerup", _timeBetweenLaserPowerupSpawn);
     }
 
     private void SpawnChest()

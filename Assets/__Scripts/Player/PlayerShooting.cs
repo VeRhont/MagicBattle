@@ -19,6 +19,7 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private float _chargeSpeed = 5f;
     [SerializeField] private float _timeToCharge;
     private float _timeFromChargeStart = 0;
+    private bool _isChargeAvailable = false;
 
     [Header("LaserBeam")]
     [SerializeField] private GameObject _laserBeamPrefab;
@@ -37,7 +38,7 @@ public class PlayerShooting : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButton(LEFT_MOUSE_BUTTON))
+        if (Input.GetButton(LEFT_MOUSE_BUTTON)) 
         {   
             if (_isLaserBeamActive)
             {
@@ -60,7 +61,7 @@ public class PlayerShooting : MonoBehaviour
         }
         else
         {
-            if (Input.GetButton(RIGHT_MOUSE_BUTTON))
+            if (_isChargeAvailable && Input.GetButton(RIGHT_MOUSE_BUTTON))
             {
                 PlayerController.Instance.IsCharging = true;
                 _timeFromChargeStart += Time.deltaTime;
@@ -75,7 +76,6 @@ public class PlayerShooting : MonoBehaviour
                 _timeFromChargeStart = 0;
             }
         }
-
         _lastShotTime -= Time.deltaTime;
     }
 
@@ -126,7 +126,7 @@ public class PlayerShooting : MonoBehaviour
         _readyToUpdate = false;
 
         _laserBeam.SetActive(true);
-        _line.SetPoints(_firePoint);
+        _line.SetPoints(_firePoint, _beamDamage);
 
         yield return new WaitForSeconds(_timeBetweenUpdates);
 
@@ -136,5 +136,10 @@ public class PlayerShooting : MonoBehaviour
     private void LoadWeaponData()
     {
         var weaponData = SaveSystem.Instance.LoadWeaponData();
+        _timeBetweenShoot = weaponData.FireRate;
+
+        _beamDamage = (int)PlayerPrefs.GetFloat("laserUpgradeValue", 1);
+        _timeToCharge = PlayerPrefs.GetFloat("powerfulChargeUpgradeValue", 3);
+        _isChargeAvailable = (PlayerPrefs.GetInt("powerfulCharge", 0) == 1);
     }
 }

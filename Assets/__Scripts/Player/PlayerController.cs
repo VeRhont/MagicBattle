@@ -3,7 +3,10 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
-    static public PlayerController Instance;
+    public static PlayerController Instance;
+
+    public bool IsShooting { get; set; }
+    public bool IsCharging { get; set; }
 
     [Header("PlayerStats")]
     [SerializeField] private float _maxHealth;
@@ -14,11 +17,6 @@ public class PlayerController : MonoBehaviour
     private bool _isAlive = true;
     private float _currentSpeed;
     private float _health;
-    private int _score;
-    private int _kills;
-
-    public bool IsShooting { get; set; }
-    public bool IsCharging { get; set; }
 
     private bool _isMoving = false;
     private Vector2 _movement;
@@ -28,6 +26,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _weapon;
     [SerializeField] private Transform _weaponPosition;
     private Rigidbody2D _weaponRb;
+
+    [Header("Teleport")]
+    private bool _isTeleportAvailable = false;
+    private float _timeBetweenTeleportations;
+    private float _timeFromLastTeleportation = 0f;
 
     [Header("Components")]
     private Camera _camera;
@@ -48,9 +51,8 @@ public class PlayerController : MonoBehaviour
 
         LoadPlayerData();
 
-        // _maxHealth = 10000f;  ”¡–¿“‹!!!     
+        //_maxHealth = 10000f;  // ”¡–¿“‹!!!     
         _health = _maxHealth;
-
         _currentSpeed = _normalSpeed;
     }
 
@@ -71,23 +73,31 @@ public class PlayerController : MonoBehaviour
         GetInput();
         RotateWeapon();
 
+        if (_isTeleportAvailable && Input.GetKeyDown(KeyCode.F))
+        {
+            if (_timeFromLastTeleportation <= 0)
+                Teleport();
+        }
+
         if (IsShooting)
-        {
             _currentSpeed = _speedDuringShooting;
-        }
         else if (IsCharging)
-        {
             _currentSpeed = _speedDuringCharging;
-        }
         else
-        {
             _currentSpeed = _normalSpeed;
-        }
+
+        _timeFromLastTeleportation -= Time.deltaTime;
     }
 
     private void FixedUpdate()
     {
         Move();
+    }
+
+    private void Teleport()
+    {
+        _playerRb.position = Vector3.zero;
+        _timeFromLastTeleportation = _timeBetweenTeleportations;
     }
 
     private void Move()
@@ -165,7 +175,10 @@ public class PlayerController : MonoBehaviour
     {
         var playerData = SaveSystem.Instance.LoadPlayerData();
 
-        _maxHealth = playerData._maxHealth;
-        _normalSpeed = playerData._speed;
+        _maxHealth = playerData.MaxHealth;
+        _normalSpeed = playerData.Speed;
+
+        _isTeleportAvailable = (PlayerPrefs.GetInt("portalRing", 0) == 1);
+        _timeBetweenTeleportations = PlayerPrefs.GetFloat("portalRingUpgradeValue", 30);
     }
 }

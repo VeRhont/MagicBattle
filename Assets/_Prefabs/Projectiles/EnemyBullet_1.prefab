@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8123534546210057238}
   - component: {fileID: 8123534546210057235}
   - component: {fileID: 8123534546210057236}
-  - component: {fileID: 8123534546210057234}
+  - component: {fileID: 752387294}
   m_Layer: 11
   m_Name: EnemyBullet_1
   m_TagString: Untagged
@@ -134,7 +134,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8123534546210057234
+--- !u!114 &752387294
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,10 +143,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8123534546210057239}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99dc82aeeec600b4ea6e10f617176e3c, type: 3}
+  m_Script: {fileID: 11500000, guid: 31096ec42d986c9458cae071a4b533f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hitEffect: {fileID: 4781105762382584316, guid: 2aa9bd60703ca6c408809705bae9f799, type: 3}
+  _hitEffect: {fileID: 8067937340310914444, guid: 1928c97ada5a9a0429b51c254a72b2cb, type: 3}
   _damage: 10
   _lifeTime: 5
   _speed: 10
