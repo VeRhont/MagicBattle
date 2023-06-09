@@ -20,26 +20,9 @@ public class EnemySpawnManager : MonoBehaviour
 
     private List<EnemyType> _possibleSpawns;
 
-    [Header("Coordinates")]
-    [SerializeField] private Transform _leftUpCorner;
-    [SerializeField] private Transform _rightDownCorner;
-
-    private float _rightBound;
-    private float _leftBound;
-    private float _upBound;
-    private float _downBound;
-
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-
-        _rightBound = _rightDownCorner.position.x;
-        _leftBound = _leftUpCorner.position.x;
-        _downBound = _rightDownCorner.position.y;
-        _upBound = _leftUpCorner.position.y;
+        if (Instance == null) Instance = this;
     }
 
     private void Start()
@@ -118,30 +101,11 @@ public class EnemySpawnManager : MonoBehaviour
 
     private Vector2 GetPosition(float spawnRadius)
     {
-        if (spawnRadius >= (_rightBound - _leftBound) / 2)
-        {
-            spawnRadius = (_rightBound - _leftBound) / 2 - 1;
-        }
-
-        var playerPosition = _playerTransform.transform.position;
-        var generatedPosition = new Vector2();
-
-        do {
-            var angle = Random.Range(0, 360);
-            var x = spawnRadius * Mathf.Cos(angle);
-            var y = spawnRadius * Mathf.Sin(angle);
-
-            generatedPosition = new Vector2(playerPosition.x + x, playerPosition.y + y);
-        }
-        while (IsInsideBounds(generatedPosition) == false);
-
-        return generatedPosition;
+        return PositionGenerator.Instance.GetPositionAroundPlayer(spawnRadius, _playerTransform);
     }
 
     private bool IsInsideBounds(Vector2 position)
     {
-        var xBound = (_leftBound < position.x) && (position.x < _rightBound);
-        var yBound = (_downBound < position.y) && (position.y < _upBound);
-        return xBound && yBound;
+        return PositionGenerator.Instance.IsInsideBounds(position);
     }
 }

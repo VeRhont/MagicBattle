@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _weaponRb;
 
     [Header("Teleport")]
+    [SerializeField] private float _teleportDistance = 10f;
     private bool _isTeleportAvailable = false;
     private float _timeBetweenTeleportations;
     private float _timeFromLastTeleportation = 0f;
@@ -39,10 +40,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
+        if (Instance == null) Instance = this;
 
         _camera = Camera.main;
         _playerRb = GetComponent<Rigidbody2D>();
@@ -96,7 +94,7 @@ public class PlayerController : MonoBehaviour
 
     private void Teleport()
     {
-        _playerRb.position = Vector3.zero;
+        _playerRb.position = PositionGenerator.Instance.GetPositionAroundPlayer(_teleportDistance, transform);
         _timeFromLastTeleportation = _timeBetweenTeleportations;
     }
 

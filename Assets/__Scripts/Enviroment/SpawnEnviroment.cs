@@ -9,37 +9,17 @@ public class SpawnEnviroment : MonoBehaviour
     [SerializeField] private Transform _enviromentParent;
     [SerializeField] private GameObject[] _enviromentPrefabs;
 
-    [Header("Coordinates")]
-    [SerializeField] private Transform _leftUpCorner;
-    [SerializeField] private Transform _rightDownCorner;
-
-    private float _rightBound;
-    private float _leftBound;
-    private float _upBound;
-    private float _downBound;
-
     private List<Vector2> _map;
 
-    private void Awake()
-    {
-        _rightBound = _rightDownCorner.position.x;
-        _leftBound = _leftUpCorner.position.x;
-        _downBound = _rightDownCorner.position.y;
-        _upBound = _leftUpCorner.position.y;
-    }
-
     private void Start()
-    {
+    {       
         GenerateMap();
         SpawnRandomEnviroment();
     }
 
     private Vector2 GetRandomPosition()
     {
-        int x = Mathf.RoundToInt(Random.Range(_leftBound, _rightBound));
-        int y = Mathf.RoundToInt(Random.Range(_downBound, _upBound));
-
-        return new Vector2(x, y);
+        return PositionGenerator.Instance.GetRandomPosition();
     }
 
     private void GenerateMap()
