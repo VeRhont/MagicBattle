@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _speedDuringCharging;
     [SerializeField] private float _speedInSlime;
     private bool _isAlive = true;
+    private bool _isInSlime = false;
     private float _currentSpeed;
     private float _health;
 
@@ -32,6 +33,12 @@ public class PlayerController : MonoBehaviour
     private bool _isTeleportAvailable = false;
     private float _timeBetweenTeleportations;
     private float _timeFromLastTeleportation = 0f;
+
+    [Header("ShockWave")]
+    [SerializeField] private float _radius;
+    [SerializeField] private float _force;
+    [SerializeField] private float _cooldownTime;
+    [SerializeField] private float _usingTime;
 
     [Header("Components")]
     private Camera _camera;
@@ -77,12 +84,10 @@ public class PlayerController : MonoBehaviour
                 Teleport();
         }
 
-        if (IsShooting)
-            _currentSpeed = _speedDuringShooting;
-        else if (IsCharging)
-            _currentSpeed = _speedDuringCharging;
-        else
-            _currentSpeed = _normalSpeed;
+        if (_isInSlime) _currentSpeed = _speedInSlime;
+        else if (IsShooting) _currentSpeed = _speedDuringShooting;
+        else if (IsCharging) _currentSpeed = _speedDuringCharging;
+        else _currentSpeed = _normalSpeed;
 
         _timeFromLastTeleportation -= Time.deltaTime;
     }
@@ -157,7 +162,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("SlimePart"))
         {
-            _currentSpeed = _speedInSlime;
+            _isInSlime = true;
         }
     }
 
@@ -165,7 +170,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("SlimePart"))
         {
-            _currentSpeed = _normalSpeed;
+            _isInSlime = false;
         }
     }
 
@@ -178,5 +183,11 @@ public class PlayerController : MonoBehaviour
 
         _isTeleportAvailable = (PlayerPrefs.GetInt("portalRing", 0) == 1);
         _timeBetweenTeleportations = PlayerPrefs.GetFloat("portalRingUpgradeValue", 30);
+
+        if (PlayerPrefs.GetInt("shockWave", 0) == 1)
+        {
+            var shockWave = gameObject.AddComponent<ShockWave>() as ShockWave;
+            shockWave.Initialize(_radius, _force, _cooldownTime, _usingTime);
+        }
     }
 }

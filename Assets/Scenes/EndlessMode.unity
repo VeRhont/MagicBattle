@@ -17068,8 +17068,6 @@ MonoBehaviour:
   _playerTransform: {fileID: 973076255}
   _spawnRange: 15
   _timeBetweenSpawn: 2
-  _leftUpCorner: {fileID: 756795862}
-  _rightDownCorner: {fileID: 825878034}
 --- !u!4 &731902041
 Transform:
   m_ObjectHideFlags: 0
@@ -27902,8 +27900,28 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3545881777514157950, guid: e1ede95ad2cf59f4e9476800d7e511d3, type: 3}
+      propertyPath: _force
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3545881777514157950, guid: e1ede95ad2cf59f4e9476800d7e511d3, type: 3}
+      propertyPath: _radius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3545881777514157950, guid: e1ede95ad2cf59f4e9476800d7e511d3, type: 3}
       propertyPath: _maxHealth
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3545881777514157950, guid: e1ede95ad2cf59f4e9476800d7e511d3, type: 3}
+      propertyPath: _usingTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3545881777514157950, guid: e1ede95ad2cf59f4e9476800d7e511d3, type: 3}
+      propertyPath: _cooldownTime
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3545881777514157950, guid: e1ede95ad2cf59f4e9476800d7e511d3, type: 3}
+      propertyPath: _speedInSlime
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3545881777514157951, guid: e1ede95ad2cf59f4e9476800d7e511d3, type: 3}
       propertyPath: m_Enabled

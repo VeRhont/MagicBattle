@@ -316,6 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cbb01896f5d61342ac1b96fc6de6d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _foliageSound: {fileID: 8300000, guid: 31a94078f7cab8a4f9984dfa34f8ee30, type: 3}
 --- !u!58 &76190604
 CircleCollider2D:
   m_ObjectHideFlags: 0
