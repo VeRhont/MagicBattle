@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -36,7 +37,6 @@ public class PlayerController : MonoBehaviour
 
     [Header("ShockWave")]
     [SerializeField] private float _radius;
-    [SerializeField] private float _force;
     [SerializeField] private float _cooldownTime;
     [SerializeField] private float _usingTime;
 
@@ -186,8 +186,47 @@ public class PlayerController : MonoBehaviour
 
         if (PlayerPrefs.GetInt("shockWave", 0) == 1)
         {
+            var force = PlayerPrefs.GetFloat("shockWaveUpgradeValue", 1);
+
             var shockWave = gameObject.AddComponent<ShockWave>() as ShockWave;
-            shockWave.Initialize(_radius, _force, _cooldownTime, _usingTime);
+            shockWave.Initialize(_radius, force, _cooldownTime, _usingTime);
         }
+
+        if (SceneManager.GetActiveScene().name == "EndlessMode")
+        {
+            GetCurrentUpgrade();   
+        }
+    }
+
+    private void GetCurrentUpgrade()
+    {
+        var fountain = FindObjectOfType<FountainController>();
+
+        switch (fountain.CurrentUpgrade)
+        {
+            case TemporaryUpgrade.increaseHealth:
+                _maxHealth += 30;
+                break;
+
+            case TemporaryUpgrade.decreaseHealth:
+                _maxHealth -= 30;
+                break;
+
+            case TemporaryUpgrade.increaseSpeed:
+                _normalSpeed += 1;
+                break;
+
+            case TemporaryUpgrade.decreaseSpeed:
+                _normalSpeed -= 1;
+                break;
+
+            case TemporaryUpgrade.increaseDamage:
+                break;
+
+            case TemporaryUpgrade.decreaseDamage:
+                break;
+        }
+
+        Destroy(fountain.transform.gameObject);
     }
 }
