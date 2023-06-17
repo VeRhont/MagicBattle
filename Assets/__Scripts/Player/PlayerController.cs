@@ -201,31 +201,13 @@ public class PlayerController : MonoBehaviour
     private void GetCurrentUpgrade()
     {
         var fountain = FindObjectOfType<FountainController>();
+        var currentUpgrade = fountain.CurrentUpgrade;
 
-        switch (fountain.CurrentUpgrade)
-        {
-            case TemporaryUpgrade.increaseHealth:
-                _maxHealth += 30;
-                break;
-
-            case TemporaryUpgrade.decreaseHealth:
-                _maxHealth -= 30;
-                break;
-
-            case TemporaryUpgrade.increaseSpeed:
-                _normalSpeed += 1;
-                break;
-
-            case TemporaryUpgrade.decreaseSpeed:
-                _normalSpeed -= 1;
-                break;
-
-            case TemporaryUpgrade.increaseDamage:
-                break;
-
-            case TemporaryUpgrade.decreaseDamage:
-                break;
-        }
+        if (currentUpgrade == TempUpgrade.increaseHealth || currentUpgrade == TempUpgrade.decreaseHealth)
+            _maxHealth += FountainController.Instance.UpgradeValues[currentUpgrade].Value;
+    
+        if (currentUpgrade == TempUpgrade.increaseSpeed || currentUpgrade == TempUpgrade.decreaseSpeed)
+            _normalSpeed += FountainController.Instance.UpgradeValues[currentUpgrade].Value;
 
         Destroy(fountain.transform.gameObject);
     }

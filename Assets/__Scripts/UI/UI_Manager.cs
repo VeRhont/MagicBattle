@@ -7,7 +7,7 @@ public class UI_Manager : MonoBehaviour
 {
     public static UI_Manager Instance;
 
-    public int KillsCount { get { return int.Parse(_killsCount.text); } }
+    public int KillsCount => int.Parse(_killsCount.text); 
 
     [Header("PlayerStats")]
     [SerializeField] private Image _healthBarImage;
@@ -19,6 +19,9 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _soulCountText;
     [SerializeField] private TextMeshProUGUI _crystalsCountText;
     [SerializeField] private float _showCanvasTime = 5;
+
+    [Header("Other UI")]
+    [SerializeField] private Image _popUpImage;
     
     private void Awake()
     {
@@ -83,6 +86,24 @@ public class UI_Manager : MonoBehaviour
         _coinsCountText.SetText($"{coins}");
         _soulCountText.SetText($"{soul}");
         _crystalsCountText.SetText($"{crystals}");
+    }
+
+    public void PopUpUpgradeImage(TempUpgrade currentUpgrade, Sprite newSprite)
+    {
+        Debug.ClearDeveloperConsole();
+        Debug.Log(currentUpgrade);
+        Debug.Log((int)currentUpgrade);
+
+        _popUpImage.sprite = newSprite;
+        StartCoroutine(FadeImage(_popUpImage));
+    }
+
+    private IEnumerator FadeImage(Image image)
+    {
+        image.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        image.gameObject.SetActive(false);
+        Debug.ClearDeveloperConsole();
     }
 
     public void EnableResourcesCanvas()

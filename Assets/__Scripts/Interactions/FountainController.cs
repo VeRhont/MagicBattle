@@ -1,29 +1,48 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System;
 
-public enum TemporaryUpgrade
+public enum TempUpgrade
 {
-    nothing, 
     increaseHealth,
     decreaseHealth, 
     increaseSpeed,
     decreaseSpeed,
-    increaseDamage,
-    decreaseDamage
+    addCoins,
+    addSoul,
+    addCrystal,
+    nothing
 }
+
+[System.Serializable]
+public struct TempPowerUp
+{
+    public float Value;
+    public Sprite Image;
+};
 
 public class FountainController : MonoBehaviour
 {
     public static FountainController Instance;
 
-    [SerializeField, Range(0, 1)] private float _successChance;
+    [SerializeField] private List<TempPowerUp> _upgradesList;
+    public Dictionary<TempUpgrade, TempPowerUp> UpgradeValues = new Dictionary<TempUpgrade, TempPowerUp>();
+
+    [SerializeField, Range(0.9f, 1f)] private float _moneyChance;
+    [SerializeField, Range(0f, 1f)] private float _successChance;
     [SerializeField] private AudioClip _buySound;
 
-    public TemporaryUpgrade CurrentUpgrade { get { return _currentUpgrade; } }
-    private TemporaryUpgrade _currentUpgrade = TemporaryUpgrade.nothing;
+    public TempUpgrade CurrentUpgrade => _currentUpgrade; 
+    private TempUpgrade _currentUpgrade = TempUpgrade.nothing;
 
     private void Awake()
     {
         if (Instance == null) Instance = this;
+
+        for (int i = 0; i < _upgradesList.Count; i++)
+        {
+            UpgradeValues[(TempUpgrade)i] = _upgradesList[i];
+        }
 
         DontDestroyOnLoad(this.gameObject);
     }
@@ -31,13 +50,26 @@ public class FountainController : MonoBehaviour
     public void GiveRandomPower()
     {
         SpendCoin();
+        var randomValue = UnityEngine.Random.value;
 
-        if (Random.value > _successChance)
+        if (randomValue > _moneyChance)
         {
-            _currentUpgrade = (TemporaryUpgrade)Random.Range(1, 6);
-            Debug.ClearDeveloperConsole();
-            print(_currentUpgrade);
-            // Всплывает иконка с улучшением
+            var bonus = (TempUpgrade)UnityEngine.Random.Range(4, 6);
+
+            if (bonus == TempUpgrade.addCoins)  
+                PlayerWallet.Instance.Coins += (int)UpgradeValues[bonus].Value;           
+            else if (bonus == TempUpgrade.addSoul)
+                PlayerWallet.Instance.Soul += (int)UpgradeValues[bonus].Value;
+            else
+                PlayerWallet.Instance.Crystals += (int)UpgradeValues[bonus].Value;
+
+            UI_Manager.Instance.UpdateResourcesCount();
+            UI_Manager.Instance.PopUpUpgradeImage(bonus, UpgradeValues[bonus].Image);
+        }
+        else if (UnityEngine.Random.value > _successChance)
+        {
+            _currentUpgrade = (TempUpgrade)UnityEngine.Random.Range(0, 3);
+            UI_Manager.Instance.PopUpUpgradeImage(_currentUpgrade, UpgradeValues[_currentUpgrade].Image);
         }
     }
 
