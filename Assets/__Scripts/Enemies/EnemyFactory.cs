@@ -12,12 +12,15 @@ public enum EnemyType
     ZombieBoss,
     FlyBoss,
     SpikeyBoss,
+    Plant,
     Default
 }
 
 public class EnemyFactory : MonoBehaviour
 {
     public static EnemyFactory Instance;
+
+    public Action<int> EnemySpawned;
 
     private void Awake()
     {
@@ -28,9 +31,10 @@ public class EnemyFactory : MonoBehaviour
 
     public void CreateEnemy(EnemyType enemyType, Vector2 position)
     {
-        EnemySpawnManager.Instance.AliveEnemiesCount += 1;
-
         var index = (int)enemyType;
-        Instantiate(_enemyPrefabs[index], position, Quaternion.identity);
+        var enemy = _enemyPrefabs[index];
+        Instantiate(enemy, position, Quaternion.identity);
+
+        EnemySpawned?.Invoke(enemy.SpawnPrice);
     }
 }

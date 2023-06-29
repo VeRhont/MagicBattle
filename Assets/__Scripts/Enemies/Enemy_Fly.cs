@@ -25,7 +25,7 @@ public class Enemy_Fly : Enemy
     {
         _timeFromLastShot -= Time.deltaTime;
 
-        if (_timeFromLastShot <= 0 && isCloseEnough)
+        if ((_timeFromLastShot <= 0) && isCloseEnough)
         {
             Shoot();
         }
@@ -48,14 +48,14 @@ public class Enemy_Fly : Enemy
         LookAtPlayer(_playerTransform.position);
 
         var direction = GetDirectionVectorToPlayer();
-
         _enemyRb.MovePosition(_enemyRb.position + direction * _speed * Time.fixedDeltaTime);
     }
 
     private void FlyAroundPlayer()
     {
-        Vector2 playerPosition = _playerTransform.position;
+        _enemyRb.velocity = Vector2.zero;
 
+        var playerPosition = _playerTransform.position;
         LookAtPlayer(playerPosition);
     }
 

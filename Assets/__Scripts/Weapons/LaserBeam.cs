@@ -17,7 +17,11 @@ public class LaserBeam : MonoBehaviour
 
     public void SetPoints(Transform firePoint, int damage)
     {
+        //var hitInfo = Physics2D.Raycast(firePoint.position, firePoint.up, 1000, 6);
+        //if (hitInfo == null) return;
+
         var hitInfo = Physics2D.Raycast(firePoint.position, firePoint.up);
+
         var hitPosition = new Vector2(hitInfo.point.x, hitInfo.point.y);
 
         if (hitInfo.transform.gameObject.CompareTag("Enemy"))

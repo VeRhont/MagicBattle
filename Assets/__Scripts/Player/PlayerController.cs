@@ -15,12 +15,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _speedDuringShooting;
     [SerializeField] private float _speedDuringCharging;
     [SerializeField] private float _speedInSlime;
-    private bool _isAlive = true;
-    private bool _isInSlime = false;
     private float _currentSpeed;
     private float _health;
 
+    private bool _isAlive = true;
+    private bool _isInSlime = false;
     private bool _isMoving = false;
+
     private Vector2 _movement;
     private Vector2 _mousePosition;
 
@@ -201,6 +202,8 @@ public class PlayerController : MonoBehaviour
     private void GetCurrentUpgrade()
     {
         var fountain = FindObjectOfType<FountainController>();
+        if (fountain == null) return;
+
         var currentUpgrade = fountain.CurrentUpgrade;
 
         if (currentUpgrade == TempUpgrade.increaseHealth || currentUpgrade == TempUpgrade.decreaseHealth)

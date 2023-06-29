@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4908288477118957055}
   - component: {fileID: 8663785756480008123}
   - component: {fileID: 5198651440194893182}
-  - component: {fileID: 6081559614095478463}
+  - component: {fileID: 6323234922620112501}
   m_Layer: 11
   m_Name: EnemyBullet_2
   m_TagString: Untagged
@@ -82,7 +82,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4050839, y: 0.87833333}
   m_EdgeRadius: 0
---- !u!114 &6081559614095478463
+--- !u!114 &6323234922620112501
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,13 +91,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3223015563807242736}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99dc82aeeec600b4ea6e10f617176e3c, type: 3}
+  m_Script: {fileID: 11500000, guid: 31096ec42d986c9458cae071a4b533f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _hitEffect: {fileID: 4781105762382584316, guid: 2aa9bd60703ca6c408809705bae9f799, type: 3}
   _damage: 20
   _lifeTime: 5
-  _speed: 15
+  _speed: 11
 --- !u!1 &3870796153472316104
 GameObject:
   m_ObjectHideFlags: 0

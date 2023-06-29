@@ -25,15 +25,16 @@ public class FountainController : MonoBehaviour
 {
     public static FountainController Instance;
 
-    [SerializeField] private List<TempPowerUp> _upgradesList;
-    public Dictionary<TempUpgrade, TempPowerUp> UpgradeValues = new Dictionary<TempUpgrade, TempPowerUp>();
-
     [SerializeField, Range(0.9f, 1f)] private float _moneyChance;
     [SerializeField, Range(0f, 1f)] private float _successChance;
     [SerializeField] private AudioClip _buySound;
 
-    public TempUpgrade CurrentUpgrade => _currentUpgrade; 
+    [SerializeField] private List<TempPowerUp> _upgradesList;
+
+    public Dictionary<TempUpgrade, TempPowerUp> UpgradeValues = new Dictionary<TempUpgrade, TempPowerUp>();
+
     private TempUpgrade _currentUpgrade = TempUpgrade.nothing;
+    public TempUpgrade CurrentUpgrade => _currentUpgrade; 
 
     private void Awake()
     {
@@ -54,7 +55,7 @@ public class FountainController : MonoBehaviour
 
         if (randomValue > _moneyChance)
         {
-            var bonus = (TempUpgrade)UnityEngine.Random.Range(4, 6);
+            var bonus = (TempUpgrade)UnityEngine.Random.Range(4, 7);
 
             if (bonus == TempUpgrade.addCoins)  
                 PlayerWallet.Instance.Coins += (int)UpgradeValues[bonus].Value;           
@@ -68,7 +69,7 @@ public class FountainController : MonoBehaviour
         }
         else if (UnityEngine.Random.value > _successChance)
         {
-            _currentUpgrade = (TempUpgrade)UnityEngine.Random.Range(0, 3);
+            _currentUpgrade = (TempUpgrade)UnityEngine.Random.Range(0, 4);
             UI_Manager.Instance.PopUpUpgradeImage(_currentUpgrade, UpgradeValues[_currentUpgrade].Image);
         }
     }

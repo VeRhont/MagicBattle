@@ -4883,5 +4883,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93848e2f266a19f45b07a403c23acf6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lifeTime: 10
+  _lifeTime: 5
   _deltaSize: {x: 1, y: 1, z: 1}

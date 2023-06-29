@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3283163957861727642}
   - component: {fileID: 3283163957861727717}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shades_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,9 +97,10 @@ GameObject:
   - component: {fileID: 3283163958467170856}
   - component: {fileID: 3283163958467170857}
   - component: {fileID: 7295225315367342164}
-  m_Layer: 0
+  - component: {fileID: 1997997372307610813}
+  m_Layer: 6
   m_Name: Enemy_Plant
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,7 +148,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -199,6 +200,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1997997372307610813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3283163958467170862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 869757918d7575240b401b964b7f102d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 20
 --- !u!1 &3283163958596806877
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,7 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3283163958596806876}
   - component: {fileID: 3283163958596806879}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plant_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +239,7 @@ Transform:
   m_GameObject: {fileID: 3283163958596806877}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3283163958467170858}

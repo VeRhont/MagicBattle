@@ -18688,24 +18688,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b2eff7a2eaddb9459002a17aa9ccd17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _upgradesList:
-  - Value: 30
-    Image: {fileID: 1352192739, guid: fb75a9c305def2b4890db1a016a30dbe, type: 3}
-  - Value: -30
-    Image: {fileID: -687616686, guid: 8d6849572eae2f54f81496f35f80cb52, type: 3}
-  - Value: 1
-    Image: {fileID: 1806826218, guid: fb75a9c305def2b4890db1a016a30dbe, type: 3}
-  - Value: -1
-    Image: {fileID: 1806826218, guid: fb75a9c305def2b4890db1a016a30dbe, type: 3}
-  - Value: 5
-    Image: {fileID: -2030102094, guid: 3a119a5e8c80a2540a2700a86fd6cffd, type: 3}
-  - Value: 2
-    Image: {fileID: -317175288, guid: 3a119a5e8c80a2540a2700a86fd6cffd, type: 3}
-  - Value: 1
-    Image: {fileID: 2048374856, guid: 3a119a5e8c80a2540a2700a86fd6cffd, type: 3}
-  _moneyChance: 0.9
+  _moneyChance: 0.95
   _successChance: 0.7
   _buySound: {fileID: 8300000, guid: 9b7813f48bd6e294a8e5c00c6e6aa102, type: 3}
+  _upgradesList:
+  - Value: 30
+    Image: {fileID: -1012821868, guid: 8f46ed077f7bd06418a8df0de435698e, type: 3}
+  - Value: -100
+    Image: {fileID: -999602785, guid: 8f46ed077f7bd06418a8df0de435698e, type: 3}
+  - Value: 1
+    Image: {fileID: 1315207293, guid: 8f46ed077f7bd06418a8df0de435698e, type: 3}
+  - Value: -1
+    Image: {fileID: 1345361236, guid: 8f46ed077f7bd06418a8df0de435698e, type: 3}
+  - Value: 5
+    Image: {fileID: 1731771913, guid: 8f46ed077f7bd06418a8df0de435698e, type: 3}
+  - Value: 2
+    Image: {fileID: 1640432211, guid: 8f46ed077f7bd06418a8df0de435698e, type: 3}
+  - Value: 1
+    Image: {fileID: -532509956, guid: 8f46ed077f7bd06418a8df0de435698e, type: 3}
 --- !u!4 &1766220269
 Transform:
   m_ObjectHideFlags: 0

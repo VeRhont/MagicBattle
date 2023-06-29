@@ -6,16 +6,41 @@ public class EnemySpawnManager : MonoBehaviour
 {
     public static EnemySpawnManager Instance;
 
+    [Header("Spawning")]
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private float _spawnRange;
     [SerializeField] private float _timeBetweenSpawn;
 
-    private int _waveNumber = 1;
-    private int _aliveEnemiesCount = 0;
+    [Header("Balance")]
+    [SerializeField] private int _firstWave;
+    [SerializeField] private int _secondWave;
+    [SerializeField] private int _thirdWave;
+    [SerializeField] private int _bossWave;
+    [SerializeField] private int _availablePerWave;
+    [SerializeField] private int _aliveEnemiesCount = 0;
+    private int _waveNumber = 0;
+
     public int AliveEnemiesCount
     {
-        get { return _aliveEnemiesCount; }
-        set { _aliveEnemiesCount = value; }
+        get
+        {
+            return _aliveEnemiesCount;
+        }
+        set
+        {
+            _aliveEnemiesCount = value;
+        }
+    }
+    public int AvailablePerWave
+    {
+        get
+        {
+            return _availablePerWave;
+        }
+        set
+        {
+            _availablePerWave = value;
+        }
     }
 
     private List<EnemyType> _possibleSpawns;
@@ -23,72 +48,65 @@ public class EnemySpawnManager : MonoBehaviour
     private void Awake()
     {
         if (Instance == null) Instance = this;
+
+        _possibleSpawns = new List<EnemyType>();
+        AddEnemiesToList(EnemyType.Zombie, EnemyType.Zombie, EnemyType.Fly, EnemyType.Spikey);
+ 
+        EnemyFactory.Instance.EnemySpawned += OnEnemySpawned;
     }
 
-    private void Start()
+    private void OnDestroy()
     {
-        _possibleSpawns = new List<EnemyType>();
+        EnemyFactory.Instance.EnemySpawned -= OnEnemySpawned;
+    }
 
-        _possibleSpawns.Add(EnemyType.Zombie);
-        _possibleSpawns.Add(EnemyType.Zombie);
-        _possibleSpawns.Add(EnemyType.Fly);
-        _possibleSpawns.Add(EnemyType.Spikey);
+    private void OnEnemySpawned(int spawnPrice)
+    {
+        AliveEnemiesCount += 1;
+        AvailablePerWave -= spawnPrice;
     }
 
     private void Update()
     {
-        if (_aliveEnemiesCount <= 0)
+        if (AliveEnemiesCount <= 0)
         {
             _waveNumber++;
+            AvailablePerWave = _waveNumber + 1;
 
-            var enemiesToSpawn = _waveNumber / 2 + 1;
-            StartCoroutine(SpawnEnemyWave(enemiesToSpawn, _spawnRange));
+            StartCoroutine(SpawnEnemyWave(_spawnRange));
 
-            if (_waveNumber <= 7)
+            if (_waveNumber == _firstWave)
             {
-                // 1..7 Only simple enemies (zombie, spikey, fly)             
+                AddEnemiesToList(EnemyType.Zombie, EnemyType.Zombie, EnemyType.Fly, 
+                           EnemyType.Fly, EnemyType.Spikey, EnemyType.Spikey,
+                           EnemyType.Slime, EnemyType.FlyBoss);
             }
-            else if (_waveNumber <= 15)
+            else if (_waveNumber == _secondWave)
             {
-                // 8..15 Slime and ZombieBoss
-                _possibleSpawns.Add(EnemyType.Zombie);
-                _possibleSpawns.Add(EnemyType.Zombie);
-                _possibleSpawns.Add(EnemyType.Fly);
-                _possibleSpawns.Add(EnemyType.Fly);
-                _possibleSpawns.Add(EnemyType.Spikey);
-                _possibleSpawns.Add(EnemyType.Spikey);
-                _possibleSpawns.Add(EnemyType.Slime);
-                _possibleSpawns.Add(EnemyType.ZombieBoss);
+                AddEnemiesToList(EnemyType.Zombie, EnemyType.Fly, EnemyType.Spikey,
+                           EnemyType.Slime, EnemyType.Wormholl, EnemyType.ZombieBoss, EnemyType.Plant);
             }
-            else if (_waveNumber <= 25)
+            else if (_waveNumber == _thirdWave)
             {
-                // 16..25 Wormholl and FlyBoss
-                _possibleSpawns.Add(EnemyType.Zombie);
-                _possibleSpawns.Add(EnemyType.Fly);
-                _possibleSpawns.Add(EnemyType.Spikey);
-                _possibleSpawns.Add(EnemyType.Slime);
-                _possibleSpawns.Add(EnemyType.Wormholl);
-                _possibleSpawns.Add(EnemyType.FlyBoss);
+                AddEnemiesToList(EnemyType.Zombie, EnemyType.Fly, EnemyType.Spikey,
+                           EnemyType.SpikeyBoss);
             }
-            else if (_waveNumber <= 40)
+            else if (_waveNumber == _bossWave)
             {
-                // 26..40 SpikeyBoss and plant
-                _possibleSpawns.Add(EnemyType.Zombie);
-                _possibleSpawns.Add(EnemyType.Fly);
-                _possibleSpawns.Add(EnemyType.Spikey);
-                _possibleSpawns.Add(EnemyType.SpikeyBoss);
-            }
-            else if (_waveNumber == 50)
-            {
-                // First BlackKnight fight
                 Debug.Log("BOSS");
             }
         }
     }
 
-    private IEnumerator SpawnEnemyWave(int count, float spawnRadius)
+    private void AddEnemiesToList(params EnemyType[] enemiesToAdd)
     {
-        for (int i = 0; i < count; i++)
+        foreach (var enemy in enemiesToAdd)
+            _possibleSpawns.Add(enemy);
+    }
+
+    private IEnumerator SpawnEnemyWave(float spawnRadius)
+    {
+        while (AvailablePerWave > 0)
         {
             var randomIndex = Random.Range(0, _possibleSpawns.Count);
             var spawnPosition = GetPosition(spawnRadius);
@@ -102,10 +120,5 @@ public class EnemySpawnManager : MonoBehaviour
     private Vector2 GetPosition(float spawnRadius)
     {
         return PositionGenerator.Instance.GetPositionAroundPlayer(spawnRadius, _playerTransform);
-    }
-
-    private bool IsInsideBounds(Vector2 position)
-    {
-        return PositionGenerator.Instance.IsInsideBounds(position);
     }
 }

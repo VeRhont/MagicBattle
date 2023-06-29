@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 107995013597780907}
   - component: {fileID: 107995013597780900}
   - component: {fileID: 107995013597780901}
+  - component: {fileID: -3525705243560654586}
   m_Layer: 0
   m_Name: YellowParticles
   m_TagString: Untagged
@@ -4812,3 +4813,17 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &-3525705243560654586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107995013597780902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93848e2f266a19f45b07a403c23acf6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lifeTime: 5
+  _deltaSize: {x: 1, y: 1, z: 1}

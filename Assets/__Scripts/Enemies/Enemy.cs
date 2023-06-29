@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float _health;
     [SerializeField] protected float _attackDamage;
     [SerializeField] protected float _contactDamage;
+    [SerializeField] private int _spawnPrice;
 
     [Header("Effects and sounds")]
     [SerializeField] private ParticleSystem _deathParticles;
@@ -15,7 +16,9 @@ public class Enemy : MonoBehaviour
     protected Transform _playerTransform;
     protected PlayerController _playerController;
 
+    public int SpawnPrice => _spawnPrice;
     protected float distanceToPlayer => Vector2.Distance(transform.position, _playerTransform.position);
+    protected float CurrentHealth => _currentHealth;
 
     private float _currentHealth;
 

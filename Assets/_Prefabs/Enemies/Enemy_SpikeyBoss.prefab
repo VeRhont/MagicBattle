@@ -433,10 +433,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c71d1a2e78856f498ebf910d0b4dbef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 200
+  _health: 400
   _attackDamage: 40
   _contactDamage: 40
-  _pointsForKill: 100
+  _spawnPrice: 5
   _deathParticles: {fileID: 8693599252444959543, guid: e389905a782b56b428996c1edcd84cf4, type: 3}
   _dashStrength: 15
   _timeBetweenAttack: 5

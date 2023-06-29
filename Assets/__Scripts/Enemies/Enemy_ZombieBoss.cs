@@ -9,39 +9,30 @@ public class Enemy_ZombieBoss : Enemy_Zombie
 
     [SerializeField] private Collider2D[] _colliders;
 
-    private EnemyFactory _enemyFactory;
     private bool _canSummon = true;
-
-    private void Start()
-    {
-        _enemyFactory = GameObject.FindObjectOfType<EnemyFactory>().GetComponent<EnemyFactory>();
-    }
 
     protected override void Update()
     {
-        if ((_health <= _criticalHpCount) && _canSummon)
+        if ((CurrentHealth <= _criticalHpCount) && _canSummon)
         {
             StartCoroutine(SummonZombies(_summonCount));
             _canSummon = false;
         }
-
         base.Update();
     }
 
     private IEnumerator SummonZombies(int count)
     {
         _enemyAnimator.SetTrigger("Summon");
-
         DisableMovement();
 
         for (int i = 0; i < count; i++)
         {
-            var spawnPosition = (Vector2) transform.position + Random.insideUnitCircle * _summonRange;
-            _enemyFactory.CreateEnemy(EnemyType.Zombie, spawnPosition);
+            var spawnPosition = (Vector2)transform.position + Random.insideUnitCircle * _summonRange;
+            EnemyFactory.Instance.CreateEnemy(EnemyType.Zombie, spawnPosition);
 
             yield return new WaitForSeconds(0.6f);
         }
-
         EnableMovement();
     }
 

@@ -1320,6 +1320,7 @@ MonoBehaviour:
   _health: 20
   _attackDamage: 10
   _contactDamage: 10
+  _spawnPrice: 1
   _deathParticles: {fileID: 8693599252444959543, guid: e389905a782b56b428996c1edcd84cf4, type: 3}
   _speed: 3
   _firePoint: {fileID: 74985962}
