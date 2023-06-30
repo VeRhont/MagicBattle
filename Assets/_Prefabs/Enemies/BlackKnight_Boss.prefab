@@ -1039,6 +1039,7 @@ GameObject:
   - component: {fileID: 324260628}
   - component: {fileID: 324260623}
   - component: {fileID: 1124251210}
+  - component: {fileID: 4260310889472450624}
   m_Layer: 6
   m_Name: BlackKnight
   m_TagString: Enemy
@@ -1064,6 +1065,7 @@ Transform:
   - {fileID: 184433574089551284}
   - {fileID: 184433575071954387}
   - {fileID: 1442089897}
+  - {fileID: 7625108720065218401}
   m_Father: {fileID: 184433574257247855}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1191,6 +1193,7 @@ MonoBehaviour:
   _health: 2500
   _attackDamage: 50
   _contactDamage: 20
+  _spawnPrice: 0
   _deathParticles: {fileID: 0}
   _distanceToTeleport: 15
   _timeBetweenDistanceCheck: 2
@@ -1202,9 +1205,22 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 184433574422931284}
   m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1168854405
+  m_SortingLayer: 3
   m_SortingOrder: 1
+--- !u!114 &4260310889472450624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184433574422931284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26167458beb41044ca65b1e790637fc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sortOffsetMarker: {fileID: 7625108720065218401}
 --- !u!1 &184433574698100726
 GameObject:
   m_ObjectHideFlags: 0
@@ -1436,3 +1452,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6698476137889747684
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7625108720065218401}
+  m_Layer: 6
+  m_Name: Offset
+  m_TagString: Untagged
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7625108720065218401
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6698476137889747684}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.27, y: -2.89, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 184433574422931285}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

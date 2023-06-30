@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3341050151687686328}
   - component: {fileID: 3341050151687686335}
+  - component: {fileID: 3740764970144517841}
   m_Layer: 9
   m_Name: Shades_0
   m_TagString: Untagged
@@ -70,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 592551721
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: -655139550, guid: f5ea7d863b2e24e4caef5526ba72f96d, type: 3}
   m_Color: {r: 0.3803922, g: 0.7372549, b: 0.4039216, a: 0.44705883}
@@ -84,6 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3740764970144517841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3341050151687686329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76926bc6210b55043a020d48736afd1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3341050152088557545
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3341050152088557544}
   - component: {fileID: 3341050152088557551}
+  - component: {fileID: 869994401698113659}
   m_Layer: 9
   m_Name: Shades_1
   m_TagString: Untagged
@@ -154,8 +168,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 592551721
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: -755957726, guid: f5ea7d863b2e24e4caef5526ba72f96d, type: 3}
   m_Color: {r: 0.084905684, g: 0.07889821, b: 0.07889821, a: 0.42745098}
@@ -168,6 +182,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &869994401698113659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3341050152088557545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76926bc6210b55043a020d48736afd1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3341050152205228654
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,6 +207,7 @@ GameObject:
   - component: {fileID: 3341050152205228643}
   - component: {fileID: 3341050152205228642}
   - component: {fileID: 3341050152205228641}
+  - component: {fileID: 6008683681849508653}
   m_Layer: 9
   m_Name: Bush_2
   m_TagString: Enviroment
@@ -243,8 +270,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1168854405
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_Sprite: {fileID: -1997092381, guid: 54baeeb1c9d392645addd3d0b8224ee1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -306,3 +333,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _foliageSound: {fileID: 8300000, guid: 3a31b66083f6a6949813e711ad0d1621, type: 3}
+--- !u!114 &6008683681849508653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3341050152205228654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76926bc6210b55043a020d48736afd1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

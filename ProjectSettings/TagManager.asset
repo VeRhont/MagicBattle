@@ -51,24 +51,24 @@ TagManager:
   - name: Background
     uniqueID: 962430423
     locked: 0
+  - name: Shadows
+    uniqueID: 592551721
+    locked: 0
+  - name: Ground
+    uniqueID: 1943248905
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Bullet
     uniqueID: 3677800469
     locked: 0
-  - name: Zombie
-    uniqueID: 3723174305
-    locked: 0
-  - name: Spikey
-    uniqueID: 894967029
-    locked: 0
-  - name: Fly
-    uniqueID: 1225016631
-    locked: 0
   - name: Player
     uniqueID: 2130984703
     locked: 0
   - name: Enviroment
     uniqueID: 3126112891
+    locked: 0
+  - name: Mist
+    uniqueID: 2831276443
     locked: 0

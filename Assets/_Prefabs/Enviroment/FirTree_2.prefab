@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6995397308864775245}
   - component: {fileID: 6995397308864775244}
+  - component: {fileID: 6918416148024432348}
   m_Layer: 9
   m_Name: BackgroundShade (1)
   m_TagString: Untagged
@@ -70,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 592551721
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: -655139550, guid: f5ea7d863b2e24e4caef5526ba72f96d, type: 3}
   m_Color: {r: 0.30588236, g: 0.62352943, b: 0.3254902, a: 0.24705882}
@@ -84,6 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6918416148024432348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6995397308864775242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76926bc6210b55043a020d48736afd1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6995397309185711494
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6995397309185711497}
   - component: {fileID: 6995397309185711496}
+  - component: {fileID: 919524083682092905}
   m_Layer: 9
   m_Name: Shade
   m_TagString: Untagged
@@ -154,8 +168,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 592551721
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: -755957726, guid: f5ea7d863b2e24e4caef5526ba72f96d, type: 3}
   m_Color: {r: 0.17524031, g: 0.20754719, b: 0.18438376, a: 0.2}
@@ -168,6 +182,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &919524083682092905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6995397309185711494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76926bc6210b55043a020d48736afd1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6995397310771457520
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,6 +208,7 @@ GameObject:
   - component: {fileID: 2982200531849272781}
   - component: {fileID: 6106700477834285525}
   - component: {fileID: 70746708}
+  - component: {fileID: 5281336808973594624}
   m_Layer: 9
   m_Name: FirTree_2
   m_TagString: Enviroment
@@ -244,8 +271,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1168854405
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_Sprite: {fileID: 349094607, guid: 54baeeb1c9d392645addd3d0b8224ee1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -333,3 +360,15 @@ CircleCollider2D:
   m_Offset: {x: -0.00502795, y: 0.1776756}
   serializedVersion: 2
   m_Radius: 0.42883033
+--- !u!114 &5281336808973594624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6995397310771457520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76926bc6210b55043a020d48736afd1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

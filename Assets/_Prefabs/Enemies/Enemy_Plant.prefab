@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 3283163958467170857}
   - component: {fileID: 7295225315367342164}
   - component: {fileID: 1997997372307610813}
+  - component: {fileID: 5339251919975522983}
   m_Layer: 6
   m_Name: Enemy_Plant
   m_TagString: Enemy
@@ -130,8 +131,8 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3283163958467170862}
   m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1168854405
+  m_SortingLayer: 3
   m_SortingOrder: 1
 --- !u!50 &3283163958467170856
 Rigidbody2D:
@@ -213,6 +214,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 20
+--- !u!114 &5339251919975522983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3283163958467170862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26167458beb41044ca65b1e790637fc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sortOffsetMarker: {fileID: 3283163957861727642}
 --- !u!1 &3283163958596806877
 GameObject:
   m_ObjectHideFlags: 0

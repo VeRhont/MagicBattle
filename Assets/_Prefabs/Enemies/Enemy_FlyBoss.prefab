@@ -465,6 +465,7 @@ GameObject:
   - component: {fileID: 66002552}
   - component: {fileID: 66002551}
   - component: {fileID: 3775502124694529967}
+  - component: {fileID: 1541004295}
   m_Layer: 6
   m_Name: Enemy_FlyBoss
   m_TagString: Enemy
@@ -496,8 +497,8 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2921430169441209064}
   m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1168854405
+  m_SortingLayer: 3
   m_SortingOrder: 2
 --- !u!50 &66002552
 Rigidbody2D:
@@ -567,6 +568,19 @@ MonoBehaviour:
   _timeBetweenBurst: 3
   _spreadBulletsCount: 6
   _initialAngle: -0.2
+--- !u!114 &1541004295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2921430169441209064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26167458beb41044ca65b1e790637fc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sortOffsetMarker: {fileID: 2921430170397842017}
 --- !u!1 &2921430169582976049
 GameObject:
   m_ObjectHideFlags: 0

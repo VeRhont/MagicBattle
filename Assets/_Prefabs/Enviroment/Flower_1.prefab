@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6089543262753962765}
   - component: {fileID: 6089543262753962764}
-  m_Layer: 0
+  - component: {fileID: 689101400955314520}
+  m_Layer: 9
   m_Name: Shades_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 962430423
-  m_SortingLayer: -1
+  m_SortingLayerID: 592551721
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: -655139550, guid: f5ea7d863b2e24e4caef5526ba72f96d, type: 3}
   m_Color: {r: 0.9245283, g: 0.75444996, b: 0.87404776, a: 0.2627451}
@@ -84,6 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &689101400955314520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6089543262753962766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76926bc6210b55043a020d48736afd1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6089543262929620784
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,8 +107,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6089543262929620798}
   - component: {fileID: 6089543262929620799}
-  - component: {fileID: 2916876897521964914}
-  m_Layer: 0
+  - component: {fileID: 7873700884841095342}
+  m_Layer: 9
   m_Name: Flower_1
   m_TagString: Enviroment
   m_Icon: {fileID: 0}
@@ -156,7 +169,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 962430423
+  m_SortingLayerID: 1943248905
   m_SortingLayer: -1
   m_SortingOrder: 5
   m_Sprite: {fileID: -184461738, guid: 54baeeb1c9d392645addd3d0b8224ee1, type: 3}
@@ -170,19 +183,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &2916876897521964914
-CircleCollider2D:
+--- !u!114 &7873700884841095342
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6089543262929620784}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.034194767, y: 0.13191268}
-  serializedVersion: 2
-  m_Radius: 0.21567935
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76926bc6210b55043a020d48736afd1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

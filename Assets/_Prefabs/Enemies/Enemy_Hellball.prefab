@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &466610415
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 466610416}
+  m_Layer: 6
+  m_Name: Offset
+  m_TagString: Untagged
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &466610416
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466610415}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.68, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4105900532263957300}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &161952454708796436
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,6 +296,7 @@ GameObject:
   - component: {fileID: 4105900532263957298}
   - component: {fileID: 4105900532263957297}
   - component: {fileID: 806973949}
+  - component: {fileID: 1648684330}
   m_Layer: 6
   m_Name: Enemy_Hellball
   m_TagString: Enemy
@@ -287,6 +319,7 @@ Transform:
   - {fileID: 4105900532812006030}
   - {fileID: 5821099800952732571}
   - {fileID: 7246856901826509126}
+  - {fileID: 466610416}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -298,8 +331,8 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4105900532263957296}
   m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1168854405
+  m_SortingLayer: 3
   m_SortingOrder: 1
 --- !u!58 &4105900532263957298
 CircleCollider2D:
@@ -353,11 +386,24 @@ MonoBehaviour:
   _health: 20
   _attackDamage: 20
   _contactDamage: 20
-  _pointsForKill: 10
+  _spawnPrice: 0
   _deathParticles: {fileID: 8693599252444959543, guid: e389905a782b56b428996c1edcd84cf4, type: 3}
   _speed: 4
   _attackForce: 1
   _attackDistance: 3.5
+--- !u!114 &1648684330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4105900532263957296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26167458beb41044ca65b1e790637fc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sortOffsetMarker: {fileID: 466610416}
 --- !u!1 &4105900532459707001
 GameObject:
   m_ObjectHideFlags: 0

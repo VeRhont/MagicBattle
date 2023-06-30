@@ -1,10 +1,9 @@
 using UnityEngine;
-using System.Collections;
 
 [RequireComponent(typeof(LineRenderer))]
 public class LaserBeam : MonoBehaviour
 {
-    [SerializeField] private float _beamLength;
+    [SerializeField] private float _beamLength = 100f;
     [SerializeField] private ParticleSystem _impactEffect;
 
     private LineRenderer _lineRenderer;
@@ -17,23 +16,23 @@ public class LaserBeam : MonoBehaviour
 
     public void SetPoints(Transform firePoint, int damage)
     {
-        //var hitInfo = Physics2D.Raycast(firePoint.position, firePoint.up, 1000, 6);
-        //if (hitInfo == null) return;
-
         var hitInfo = Physics2D.Raycast(firePoint.position, firePoint.up);
 
-        var hitPosition = new Vector2(hitInfo.point.x, hitInfo.point.y);
-
-        if (hitInfo.transform.gameObject.CompareTag("Enemy"))
+        if (hitInfo.collider != null)
         {
+            var hitPosition = new Vector2(hitInfo.point.x, hitInfo.point.y);
+
             Instantiate(_impactEffect, hitPosition, _impactEffect.transform.rotation);
-            Attack(hitInfo.transform.gameObject.GetComponent<Enemy>(), damage);
-        }       
 
-        _lineRenderer.SetPosition(0, firePoint.position);
-        _lineRenderer.SetPosition(1, hitPosition);
+            if (hitInfo.transform.gameObject.CompareTag("Enemy"))
+            {
+                Attack(hitInfo.transform.gameObject.GetComponent<Enemy>(), damage);
+            }       
+
+            _lineRenderer.SetPosition(0, firePoint.position);
+            _lineRenderer.SetPosition(1, hitPosition);
+        }
     }
-
 
     private void Attack(Enemy enemy, int damage)
     {

@@ -77,7 +77,10 @@ public class UI_Manager : MonoBehaviour
     public void UpdateResourcesCount(bool showCanvas=true)
     {
         Debug.Log(showCanvas);
-        if (showCanvas) StartCoroutine(ShowResourcesCanvas());
+        if (showCanvas)
+        {
+            StartCoroutine(ShowResourcesCanvas());
+        }
 
         var coins = PlayerWallet.Instance.Coins;
         var soul = PlayerWallet.Instance.Soul;
@@ -103,7 +106,6 @@ public class UI_Manager : MonoBehaviour
         image.gameObject.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         image.gameObject.SetActive(false);
-        Debug.ClearDeveloperConsole();
     }
 
     public void EnableResourcesCanvas()

@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5511505337754427498}
   - component: {fileID: 6281456772436123744}
-  m_Layer: 0
+  - component: {fileID: 6328762215695777008}
+  m_Layer: 9
   m_Name: Shade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 592551721
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: -755957726, guid: f5ea7d863b2e24e4caef5526ba72f96d, type: 3}
   m_Color: {r: 0.09433961, g: 0.090334624, b: 0.090334624, a: 0.3764706}
@@ -84,6 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6328762215695777008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3865515883717689723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76926bc6210b55043a020d48736afd1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4715633322629465620
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +107,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6036886247598246064}
   - component: {fileID: 8822147493667756696}
-  m_Layer: 0
+  - component: {fileID: 4235550742202474173}
+  m_Layer: 9
   m_Name: BackgroundLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,8 +168,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 592551721
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: -655139550, guid: f5ea7d863b2e24e4caef5526ba72f96d, type: 3}
   m_Color: {r: 0.965116, g: 0.990566, b: 0.85506403, a: 0.27058825}
@@ -168,6 +182,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4235550742202474173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4715633322629465620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76926bc6210b55043a020d48736afd1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5457909206828622735
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,8 +204,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5457909206828622721}
   - component: {fileID: 5457909206828622734}
-  - component: {fileID: 1569172956317085650}
-  m_Layer: 0
+  - component: {fileID: 7765428854430956187}
+  m_Layer: 9
   m_Name: StoneSmall_1
   m_TagString: Enviroment
   m_Icon: {fileID: 0}
@@ -241,8 +267,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1943248905
+  m_SortingLayer: -1
   m_SortingOrder: 1
   m_Sprite: {fileID: -807224009, guid: 54baeeb1c9d392645addd3d0b8224ee1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -255,19 +281,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &1569172956317085650
-CircleCollider2D:
+--- !u!114 &7765428854430956187
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5457909206828622735}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.24}
-  serializedVersion: 2
-  m_Radius: 0.34031957
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76926bc6210b55043a020d48736afd1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
