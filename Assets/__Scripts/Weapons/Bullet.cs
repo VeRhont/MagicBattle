@@ -3,19 +3,26 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] protected GameObject _hitEffect;
+    [SerializeField] private GameObject _hitEffect;
+    [SerializeField] protected AudioClip _hitSound;
     [SerializeField] protected float _damage;
 
     [SerializeField] private float _lifeTime;
     [SerializeField] private float _speed;
 
-    private void Awake()
+    private void Update()
     {
-        Destroy(gameObject, _lifeTime);
+        if (_lifeTime <= 0) Die();
+
+        transform.Translate(Vector2.up * _speed * Time.deltaTime);
+        _lifeTime -= Time.deltaTime;
     }
 
-    public void Update()
+    protected void Die()
     {
-        transform.Translate(Vector2.up * _speed * Time.deltaTime);
+        var effect = Instantiate(_hitEffect, transform.position, _hitEffect.transform.rotation);
+
+        Destroy(effect, 2f);
+        Destroy(gameObject);
     }
 }

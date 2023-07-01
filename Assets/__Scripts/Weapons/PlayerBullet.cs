@@ -17,9 +17,7 @@ public class PlayerBullet : Bullet
             enemy.GetComponent<Enemy>().TakeDamage(damage);
         }
 
-        var effect = Instantiate(_hitEffect, transform.position, _hitEffect.transform.rotation);
-
-        Destroy(effect, 2f);
-        Destroy(gameObject);
+        AudioManager.Instance.PlaySound(_hitSound);
+        Die();
     }
 }

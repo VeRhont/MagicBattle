@@ -12,6 +12,7 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private float _bulletForce;
     [SerializeField] private float _timeBetweenShoot;
+    [SerializeField] private AudioClip _shootingSound;
     private float _lastShotTime = 1f;
 
     [Header("Charge")]
@@ -81,6 +82,7 @@ public class PlayerShooting : MonoBehaviour
 
     private void Shoot()
     {
+        AudioManager.Instance.PlaySound(_shootingSound);
         var bullet = Instantiate<GameObject>(_bulletPrefab, _firePoint.position, _firePoint.rotation);
         _lastShotTime = _timeBetweenShoot;
     }

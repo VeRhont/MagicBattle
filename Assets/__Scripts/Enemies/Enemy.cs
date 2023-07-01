@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
 
     [Header("Effects and sounds")]
     [SerializeField] private ParticleSystem _deathParticles;
+    [SerializeField] private AudioClip _deathSound;
 
     protected Rigidbody2D _enemyRb;
     protected Animator _enemyAnimator;
@@ -54,6 +55,7 @@ public class Enemy : MonoBehaviour
         EnemySpawnManager.Instance.AliveEnemiesCount -= 1;
         UI_Manager.Instance.IncreaseKillsCount();
 
+        AudioManager.Instance.PlaySound(_deathSound);
         if (_deathParticles != null)
         {
             Instantiate(_deathParticles, transform.position, _deathParticles.transform.rotation);

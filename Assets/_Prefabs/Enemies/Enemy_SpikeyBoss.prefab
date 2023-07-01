@@ -471,6 +471,7 @@ MonoBehaviour:
   _contactDamage: 40
   _spawnPrice: 5
   _deathParticles: {fileID: 8693599252444959543, guid: e389905a782b56b428996c1edcd84cf4, type: 3}
+  _deathSound: {fileID: 8300000, guid: 92b89cc1f69fe8042b30bd8fb0b50c65, type: 3}
   _dashStrength: 15
   _timeBetweenAttack: 5
   _attackTime: 3

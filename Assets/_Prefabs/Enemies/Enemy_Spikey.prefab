@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 894967029
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 14
   m_Sprite: {fileID: -1962906923, guid: 310f7adfca853754ea26c3818e41c124, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -189,7 +189,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 894967029
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 13
   m_Sprite: {fileID: 1094542234, guid: 310f7adfca853754ea26c3818e41c124, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -443,7 +443,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 894967029
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 13
   m_Sprite: {fileID: -1242229911, guid: 310f7adfca853754ea26c3818e41c124, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -560,7 +560,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 894967029
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 14
   m_Sprite: {fileID: 1743296179, guid: 310f7adfca853754ea26c3818e41c124, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -644,7 +644,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 894967029
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 12
   m_Sprite: {fileID: 1279081228, guid: 310f7adfca853754ea26c3818e41c124, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -858,7 +858,7 @@ SortingGroup:
   m_GameObject: {fileID: 3169906736863281319}
   m_Enabled: 1
   m_SortingLayerID: -1168854405
-  m_SortingLayer: 6
+  m_SortingLayer: 3
   m_SortingOrder: 1
 --- !u!114 &626120786
 MonoBehaviour:
@@ -877,6 +877,7 @@ MonoBehaviour:
   _contactDamage: 20
   _spawnPrice: 1
   _deathParticles: {fileID: 8693599252444959543, guid: e389905a782b56b428996c1edcd84cf4, type: 3}
+  _deathSound: {fileID: 8300000, guid: 92b89cc1f69fe8042b30bd8fb0b50c65, type: 3}
   _dashStrength: 10
   _timeBetweenAttack: 3.5
   _attackTime: 2

@@ -554,6 +554,7 @@ MonoBehaviour:
   _contactDamage: 15
   _spawnPrice: 2
   _deathParticles: {fileID: 8693532088449947573, guid: d98c77ee1f9553d4d9035d5e7a632186, type: 3}
+  _deathSound: {fileID: 8300000, guid: 92b89cc1f69fe8042b30bd8fb0b50c65, type: 3}
   _speed: 1
   _slimesCount: 20
   _radius: 10

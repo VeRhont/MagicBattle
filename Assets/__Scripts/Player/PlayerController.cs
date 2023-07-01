@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
 
         LoadPlayerData();
 
-        _maxHealth = 10000f;  // ”¡–¿“‹!!!     
+        //_maxHealth = 10000f;  // ”¡–¿“‹!!!     
         _health = _maxHealth;
         _currentSpeed = _normalSpeed;
     }
@@ -106,6 +106,9 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        if (_isMoving) AudioManager.Instance.TurnOnStepsSound();
+        else AudioManager.Instance.TurnOffStepsSound();
+
         _playerRb.MovePosition(_playerRb.position + _movement * _currentSpeed * Time.fixedDeltaTime);
     }
 
