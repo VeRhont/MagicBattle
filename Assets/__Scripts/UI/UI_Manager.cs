@@ -67,16 +67,13 @@ public class UI_Manager : MonoBehaviour
                 PlayerWallet.Instance.Crystals += 1;
                 _crystalsCountText.SetText($"{PlayerWallet.Instance.Crystals}");
             }
-
             yield return new WaitForSeconds(waitTime);
         }
-
         SaveSystem.Instance.SaveResourcesData();
     }
 
     public void UpdateResourcesCount(bool showCanvas=true)
     {
-        Debug.Log(showCanvas);
         if (showCanvas)
         {
             StartCoroutine(ShowResourcesCanvas());
@@ -108,20 +105,13 @@ public class UI_Manager : MonoBehaviour
         image.gameObject.SetActive(false);
     }
 
-    public void EnableResourcesCanvas()
-    {
-        _resourcesCanvas.SetActive(true);
-    }
-
-    public void DisableResourcesCanvas()
-    {
-        _resourcesCanvas.SetActive(false);
-    }
+    public void EnableResourcesCanvas() => _resourcesCanvas.SetActive(true);
+    public void DisableResourcesCanvas() => _resourcesCanvas.SetActive(false);
 
     private IEnumerator ShowResourcesCanvas()
     {
-        _resourcesCanvas.SetActive(true);
+        EnableResourcesCanvas();
         yield return new WaitForSeconds(_showCanvasTime);
-        _resourcesCanvas.SetActive(false);
+        DisableResourcesCanvas();
     }
 }
