@@ -60,14 +60,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Bullet
-    uniqueID: 3677800469
-    locked: 0
   - name: Player
     uniqueID: 2130984703
     locked: 0
   - name: Enviroment
     uniqueID: 3126112891
+    locked: 0
+  - name: Bullet
+    uniqueID: 3677800469
     locked: 0
   - name: Mist
     uniqueID: 2831276443

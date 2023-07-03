@@ -25,6 +25,7 @@ public class Enemy_Zombie : Enemy
 
     private void MoveToPlayer()
     {
+        _enemyAnimator.SetBool("IsMoving", true);
         var direction = GetDirectionVectorToPlayer();
 
         _enemyRb.MovePosition(_enemyRb.position + direction * _speed * Time.fixedDeltaTime);

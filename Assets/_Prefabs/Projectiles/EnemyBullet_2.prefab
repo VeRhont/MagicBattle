@@ -97,7 +97,7 @@ MonoBehaviour:
   _hitEffect: {fileID: 4781105762382584316, guid: 2aa9bd60703ca6c408809705bae9f799, type: 3}
   _hitSound: {fileID: 8300000, guid: 3a4ae2d9f44f3ba458bfb8f9f28faf30, type: 3}
   _damage: 20
-  _lifeTime: 5
+  _lifeTime: 2
   _speed: 11
 --- !u!1 &3870796153472316104
 GameObject:

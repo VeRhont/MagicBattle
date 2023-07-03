@@ -7,10 +7,9 @@ public class YSortDynamic : MonoBehaviour
     [SerializeField] private Transform _sortOffsetMarker;
 
     private SortingGroup _sortingGroup;
-    private int _baseSortingOrder;
     private float _ySortingOffset;
 
-    private void Start()
+    private void Awake()
     {
         _sortingGroup = GetComponent<SortingGroup>();
         _ySortingOffset = _sortOffsetMarker.position.y;
@@ -18,7 +17,6 @@ public class YSortDynamic : MonoBehaviour
 
     private void Update()
     {
-        _baseSortingOrder = transform.GetSortingOrder(_ySortingOffset);
-        _sortingGroup.sortingOrder = _baseSortingOrder;
+        _sortingGroup.sortingOrder = transform.GetSortingOrder(_ySortingOffset);
     }
 }
