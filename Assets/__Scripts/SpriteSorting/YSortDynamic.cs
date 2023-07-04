@@ -9,7 +9,7 @@ public class YSortDynamic : MonoBehaviour
     private SortingGroup _sortingGroup;
     private float _ySortingOffset;
 
-    private void Awake()
+    private void OnEnable()
     {
         _sortingGroup = GetComponent<SortingGroup>();
         _ySortingOffset = _sortOffsetMarker.position.y;

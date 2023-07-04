@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
 
         LoadPlayerData();
 
-        //_maxHealth = 10000f;  // ”¡–¿“‹!!!     
+        _maxHealth = 10000f;  // ”¡–¿“‹!!!     
         _health = _maxHealth;
         _currentSpeed = _normalSpeed;
     }

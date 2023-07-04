@@ -43,7 +43,15 @@ public class PauseMenu : MonoBehaviour
 
     public void ReturnToMenu()
     {
+        Resume();
         Time.timeScale = 1;
         ChangeScene.Instance.FadeToScene(SceneType.Menu);
+    }
+
+    public void ReturnToBase()
+    {
+        Resume();
+        Time.timeScale = 1;
+        ChangeScene.Instance.FadeToScene(SceneType.Tower);
     }
 }

@@ -32,9 +32,10 @@ public class EnemyFactory : MonoBehaviour
     public void CreateEnemy(EnemyType enemyType, Vector2 position)
     {
         var index = (int)enemyType;
-        var enemy = _enemyPrefabs[index];
-        Instantiate(enemy, position, Quaternion.identity);
+        var enemyPrefab = _enemyPrefabs[index];
+        var enemy = Instantiate(enemyPrefab, Vector2.zero, Quaternion.identity);
+        enemy.transform.position = position;
 
-        EnemySpawned?.Invoke(enemy.SpawnPrice);
+        EnemySpawned?.Invoke(enemyPrefab.SpawnPrice);
     }
 }
